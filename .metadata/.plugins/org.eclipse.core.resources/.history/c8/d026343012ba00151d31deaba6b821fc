@@ -12,7 +12,6 @@ public class BLEGattAttributes {
     public static String LUGGAGE_WRITE = "08590f7f-db05-467e-8757-72f6faeb13d4";
     public static String LUGGAGE_NTF = "08590f7e-db05-467e-8757-72f6faeb13d4";
 
-    
     public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
 
     static {
