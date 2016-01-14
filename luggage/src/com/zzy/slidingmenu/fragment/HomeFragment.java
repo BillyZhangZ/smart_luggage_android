@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	private Button mDeleteFingerButton;
 
 	private String mRemotePhoneNumber;
-	
+	private String mLuggageAddress;
     private BluetoothLeService mBluetoothLeService;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
     private BluetoothGattCharacteristic mWriteCharacteristic;
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment implements OnClickListener{
                 //finish();
             }
             // Automatically connects to the device upon successful start-up initialization.
-            mBluetoothLeService.connect(LuggageActivity.luggageAddress);
+            mBluetoothLeService.connect(mLuggageAddress);
         }
 
         @Override
@@ -90,12 +90,21 @@ public class HomeFragment extends Fragment implements OnClickListener{
             	ConfigGattServices(mBluetoothLeService.getSupportedGattServices());
             } 
             else if (BluetoothLeService.ACTION_GATT_CONFIG_DESC_SUCCEED.equals(action)) {
-            	sendData(DeviceControlActivity.GET_SIM_CMD);
+            	//sendData(DeviceControlActivity.GET_SIM_CMD);
             }
             else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 Toast.makeText(getActivity().getApplicationContext(), "收到数据"+intent.getStringExtra(BluetoothLeService.EXTRA_DATA),
                 Toast.LENGTH_LONG).show();
             }
+            
+            else if (BluetoothLeService.ACTION_GATT_RSSI_UPDATED.equals(action)) {
+                Toast.makeText(getActivity().getApplicationContext(), "RSSI"+intent.getStringExtra(BluetoothLeService.REMOTE_RSSI),
+                Toast.LENGTH_LONG).show();
+               // Double distance = Double.valueOf(intent.getStringExtra(BluetoothLeService.REMOTE_RSSI));
+               // distance = Math.pow(10, (-49-distance)/10/4.0);
+               // mDistanceButton.setText("距离:"+ String.valueOf(distance));
+            }
+            
         }
     };
     
@@ -129,14 +138,18 @@ public class HomeFragment extends Fragment implements OnClickListener{
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONFIG_DESC_SUCCEED);
 
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_RSSI_UPDATED);
         return intentFilter;
     }
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		
-		if(LuggageActivity.luggageAddress != null)
+		SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("devices", 
+        		getActivity().MODE_PRIVATE); 
+		mLuggageAddress =mySharedPreferences.getString("Address", ""); 
+
+		if(mLuggageAddress != "")
 			bonded = true;
 		else bonded = false;
 		
@@ -259,24 +272,28 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	{
 		//Toast.makeText(getApplicationContext(), "BLE Unlock button",
 		//Toast.LENGTH_SHORT).show();
-		 Toast.makeText(getActivity().getApplicationContext(), "设备未绑定", Toast.LENGTH_SHORT).show();
+		sendData("AT+LOCKON\r");
+
+		 //Toast.makeText(getActivity().getApplicationContext(), "设备未绑定", Toast.LENGTH_SHORT).show();
 	}
 	
 	//Sms Unlock Button Click Event Process
 	public void SmsUnlockOnClick()
 	{
-		//Toast.makeText(getApplicationContext(), "Sms Unlock button",
-		//Toast.LENGTH_SHORT).show();
-		// PendingIntent pi = PendingIntent.getActivity(getActivity(), 0, new Intent(getActivity(), testSms.class), 0);
-		 SmsManager sms = SmsManager.getDefault();
-		 if(mRemotePhoneNumber == null)
+		//实例化SharedPreferences对象（第一步） 
+		SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("devices", 
+		getActivity().MODE_PRIVATE); 
+		String phoneNumber =mySharedPreferences.getString("phoneNumber", ""); 
+
+		SmsManager sms = SmsManager.getDefault();
+		 if(phoneNumber == "")
 		 {
 			 Toast.makeText(getActivity().getApplicationContext(), "设备未绑定", Toast.LENGTH_SHORT).show();
 		 }
 		 else 
 		{
-			 sms.sendTextMessage(mRemotePhoneNumber, null, "KS", null, null);
-			 Toast.makeText(getActivity().getApplicationContext(), "远程开锁命令已发送", Toast.LENGTH_SHORT).show();
+			 //sms.sendTextMessage(phoneNumber, null, "KS", null, null);
+			 Toast.makeText(getActivity().getApplicationContext(), "远程开锁命令已发送"+phoneNumber, Toast.LENGTH_SHORT).show();
 		}
 		
 	}
@@ -284,41 +301,35 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	//distance Button Click Event Process
 	public void DistanceOnClick()
 	{
-		Toast.makeText(getActivity().getApplicationContext(), "distance button",
-		Toast.LENGTH_SHORT).show();
+		mBluetoothLeService.readRemoteRssi();
 	}
 	
 	public void WeightOnClick()
 	{
-		Toast.makeText(getActivity().getApplicationContext(), "weight button",
-		Toast.LENGTH_SHORT).show();
-
+		sendData("AT+GTWT\r");
 	}
 	
 	public void BatteryOnClick()
 	{
-		Toast.makeText(getActivity().getApplicationContext(), "batter button",
-		Toast.LENGTH_SHORT).show();
+		sendData("AT+GTBAT\r");
 	}
 	
 	public void DeleteFingerOnClick()
 	{
-		Toast.makeText(getActivity().getApplicationContext(), "delete finger button",
-		Toast.LENGTH_SHORT).show();
-
+		sendData("AT+FINGERDEL");
 	}
 	
 	public void RegisterFingerOnClick()
 	{
-		Toast.makeText(getActivity().getApplicationContext(), "register finger button",
-		Toast.LENGTH_SHORT).show();
-
+		sendData("AT+FINGERREG");
 	}
 	
 	public void sendData(String data)
 	    {
 	    	if(mWriteCharacteristic != null)
 	    	{
+	    		Toast.makeText(getActivity().getApplicationContext(), "命令已发送",
+	    				Toast.LENGTH_SHORT).show();
 	    		mWriteCharacteristic.setValue(data);
 	    		mBluetoothLeService.writeCharacteristic(mWriteCharacteristic);
 	    	}

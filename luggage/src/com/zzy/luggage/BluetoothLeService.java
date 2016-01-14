@@ -47,8 +47,12 @@ public class BluetoothLeService extends Service {
             "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
+    public final static String REMOTE_RSSI =
+            "com.example.bluetooth.le.REMOTE_RSSI";
     public final static String ACTION_GATT_CONFIG_DESC_SUCCEED =
             "com.example.bluetooth.le.ACTION_GATT_CONFIG_DESC_SUCCEED";
+    public final static String ACTION_GATT_RSSI_UPDATED =
+            "com.example.bluetooth.le.ACTION_GATT_RSSI_UPDATED";
 
     public final static UUID UUID_LUGGAGE_NTF =
             UUID.fromString(BLEGattAttributes.LUGGAGE_NTF);
@@ -107,10 +111,20 @@ public class BluetoothLeService extends Service {
             broadcastUpdate(ACTION_GATT_CONFIG_DESC_SUCCEED);
 
         }
+        
+        public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
+            broadcastUpdate(ACTION_GATT_RSSI_UPDATED, rssi);
+        }
     };
 
     private void broadcastUpdate(final String action) {
         final Intent intent = new Intent(action);
+        sendBroadcast(intent);
+    }
+    private void broadcastUpdate(final String action, int rssi) {
+        final Intent intent = new Intent(action);
+        intent.putExtra(REMOTE_RSSI, String.valueOf(rssi));
+
         sendBroadcast(intent);
     }
 
@@ -274,6 +288,11 @@ public class BluetoothLeService extends Service {
             return;
         }
         mBluetoothGatt.writeCharacteristic(characteristic);
+    }
+    
+    public boolean readRemoteRssi()
+    {
+    	return mBluetoothGatt.readRemoteRssi();
     }
     /**
      * Enables or disables notification on a give characteristic.

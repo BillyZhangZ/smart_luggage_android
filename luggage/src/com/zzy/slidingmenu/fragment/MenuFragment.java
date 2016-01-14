@@ -2,12 +2,14 @@ package com.zzy.slidingmenu.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.zzy.luggage.*;
 
@@ -80,12 +82,23 @@ public class MenuFragment extends Fragment implements OnClickListener{
 			title = getString(R.string.home);
 			break;
 		case R.id.tvScanView: 
-		//	newContent = new ScanFragment();
-		//	title = getString(R.string.bleScan);
+			SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("devices", 
+	        		getActivity().MODE_PRIVATE); 
+			String luggageAddress =mySharedPreferences.getString("Address", ""); 
+
+			if(luggageAddress != "")
+			{
+				newContent = null;//new FootFragment();
+				title = null;//getString(R.string.foot);		
+				Toast.makeText(getActivity().getApplicationContext(), "已存在绑定设备",
+					Toast.LENGTH_SHORT).show();
 			
-			intent = new Intent(getActivity(), DeviceScanActivity.class);
-			startActivity(intent);
-		
+			}
+			else
+			{
+				intent = new Intent(getActivity(), DeviceScanActivity.class);
+				startActivity(intent);
+			}
 			break;
 			
 		case R.id.tvFoot:

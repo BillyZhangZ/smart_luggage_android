@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -118,6 +119,17 @@ public class DeviceControlActivity extends Activity {
                 intentBack.putExtra(EXTRAS_DEVICE_ADDRESS, mDeviceAddress);
                 intentBack.putExtra(EXTRAS_DEVICE_PHONE_NUMBER, intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
 
+            	//实例化SharedPreferences对象（第一步） 
+        		SharedPreferences mySharedPreferences= getSharedPreferences("devices", 
+        		MODE_PRIVATE); 
+        		//实例化SharedPreferences.Editor对象（第二步） 
+        		SharedPreferences.Editor editor = mySharedPreferences.edit(); 
+        		//用putString的方法保存数据 
+        		editor.putString("Address", mDeviceAddress); 
+        		editor.putString("phoneNumber", intent.getStringExtra(BluetoothLeService.EXTRA_DATA)); 
+
+        		//提交当前数据 
+        		editor.commit(); 		
                 startActivity(intentBack);  
                 finish();
             }
