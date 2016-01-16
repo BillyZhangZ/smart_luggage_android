@@ -316,12 +316,12 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	
 	public void DeleteFingerOnClick()
 	{
-		sendData("AT+FINGERDEL\r");
+		sendData("AT+FINGERDEL");
 	}
 	
 	public void RegisterFingerOnClick()
 	{
-		sendData("AT+FINGERREG\r");
+		sendData("AT+FINGERREG");
 	}
 	
 	public void sendData(String data)
