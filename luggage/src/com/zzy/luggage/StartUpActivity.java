@@ -40,6 +40,8 @@ public class StartUpActivity extends Activity implements Callback{
 	private static String APPSECRET = "f81b88852c10afbc7b63ef415646d2b2";
 	private boolean ready;
 
+	public static final int EVENT_NEED_TO_LOGIN = 0x80;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,8 +51,8 @@ public class StartUpActivity extends Activity implements Callback{
 		mLogin = isLogin();
 
 				
-	//	new Handler().postDelayed(new Runnable() {    
-	  //      public void run() {   
+		new Handler().postDelayed(new Runnable() {    
+	        public void run() {   
 	            //你需要跳转的地方的代码  
 	            final Intent intent = new Intent();
 	            if(mLogin == true)
@@ -61,6 +63,12 @@ public class StartUpActivity extends Activity implements Callback{
 	            }
 	            else 
 	            {
+	        		final Handler handler = new Handler(StartUpActivity.this);
+	            	Message msg = new Message();
+					msg.arg1 = EVENT_NEED_TO_LOGIN;
+					handler.sendMessage(msg);
+					
+	            	/*
 	        		initSDK();
 	        		RegisterPage registerPage = new RegisterPage();
 	    			registerPage.setRegisterCallback(new EventHandler() {
@@ -79,6 +87,8 @@ public class StartUpActivity extends Activity implements Callback{
 	    				}
 	    			});
 	    			registerPage.show(this);
+	    			*/
+	            	
 	        		//intent.setClass(StartUpActivity.this, LoginActivity.class);
 	            }
 
@@ -86,8 +96,8 @@ public class StartUpActivity extends Activity implements Callback{
 	           /// intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
 	           // startActivity(intent);
 	           // finish();  
-	      //  }    
-	    //}, 3000); //延迟2秒跳转 
+	        }    
+	    }, 3000); //延迟2秒跳转 
 	}
 	private void initSDK() {
 		SMSSDK.initSDK(this, APPKEY, APPSECRET, true);
@@ -180,6 +190,28 @@ public class StartUpActivity extends Activity implements Callback{
 				((Throwable) data).printStackTrace();
 			}
 		} 
+		else if(event == EVENT_NEED_TO_LOGIN)
+		{
+			initSDK();
+    		RegisterPage registerPage = new RegisterPage();
+			registerPage.setRegisterCallback(new EventHandler() {
+				public void afterEvent(int event, int result, Object data) {
+					if (result == SMSSDK.RESULT_COMPLETE) {
+						@SuppressWarnings("unchecked")
+						HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
+						String country = (String) phoneMap.get("country");
+						String phone = (String) phoneMap.get("phone");
+						Login(phone);
+						//registerUser(country, phone);
+						Intent intent = new Intent();
+			            intent.setClass(StartUpActivity.this, LuggageActivity.class);
+		        		startActivity(intent);
+			            finish();
+					}
+				}
+			});
+			registerPage.show(this);
+		}
 		return false;
 	}
 }

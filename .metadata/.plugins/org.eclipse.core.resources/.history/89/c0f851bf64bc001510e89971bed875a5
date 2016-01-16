@@ -1,0 +1,79 @@
+package com.zzy.slidingmenu.fragment;
+
+import com.zzy.luggage.*;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class SettingsFragment extends Fragment implements OnClickListener{
+	private Button mLogOutButton;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.frag_settings, null);
+		mLogOutButton = (Button) view.findViewById(R.id.logOut);
+		mLogOutButton.setOnClickListener(this);
+
+		return view;
+	}
+	
+	
+	
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+	}
+	
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+	}
+		
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.logOut: 
+			this.onLogOutClick();
+			break;
+		default:
+			Log.d("setting","click");
+			break;
+		}
+	}
+	public void onLogOutClick()
+	{
+		//实例化SharedPreferences对象（第一步） 
+		SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("account", 
+		getActivity().MODE_PRIVATE); 
+		//实例化SharedPreferences.Editor对象（第二步） 
+		SharedPreferences.Editor editor = mySharedPreferences.edit(); 
+		//用putString的方法保存数据 
+		editor.putString("phoneNumber", ""); 
+
+		//提交当前数据 
+		editor.commit(); 		
+		Toast.makeText(getActivity().getApplicationContext(), "注销成功",
+				Toast.LENGTH_SHORT).show();
+	}
+}
