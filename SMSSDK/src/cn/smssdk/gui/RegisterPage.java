@@ -1,9 +1,9 @@
 /*
- * 官网地站:http://www.mob.com
- * 技术支持QQ: 4006852216
- * 官方微信:ShareSDK   （如果发布新版本的话，我们将会第一时间通过微信将版本更新内容推送给您。如果使用过程中有任何问题，也可以通过微信与我们取得联系，我们将会在24小时内给予回复）
+ * 瀹樼綉鍦扮珯:http://www.mob.com
+ * 鎶�鏈敮鎸丵Q: 4006852216
+ * 瀹樻柟寰俊:ShareSDK   锛堝鏋滃彂甯冩柊鐗堟湰鐨勮瘽锛屾垜浠皢浼氱涓�鏃堕棿閫氳繃寰俊灏嗙増鏈洿鏂板唴瀹规帹閫佺粰鎮ㄣ�傚鏋滀娇鐢ㄨ繃绋嬩腑鏈変换浣曢棶棰橈紝涔熷彲浠ラ�氳繃寰俊涓庢垜浠彇寰楄仈绯伙紝鎴戜滑灏嗕細鍦�24灏忔椂鍐呯粰浜堝洖澶嶏級
  *
- * Copyright (c) 2014年 mob.com. All rights reserved.
+ * Copyright (c) 2014骞� mob.com. All rights reserved.
  */
 package cn.smssdk.gui;
 
@@ -41,24 +41,24 @@ import cn.smssdk.utils.SMSLog;
 
 import com.mob.tools.FakeActivity;
 
-/** 短信注册页面*/
+/** 鐭俊娉ㄥ唽椤甸潰*/
 public class RegisterPage extends FakeActivity implements OnClickListener,
 		TextWatcher {
 
-	// 默认使用中国区号
+	// 榛樿浣跨敤涓浗鍖哄彿
 	private static final String DEFAULT_COUNTRY_ID = "42";
 
 	private EventHandler callback;
 
-	// 国家
+	// 鍥藉
 	private TextView tvCountry;
-	// 手机号码
+	// 鎵嬫満鍙风爜
 	private EditText etPhoneNum;
-	// 国家编号
+	// 鍥藉缂栧彿
 	private TextView tvCountryNum;
-	// clear 号码
+	// clear 鍙风爜
 	private ImageView ivClear;
-	// 下一步按钮
+	// 涓嬩竴姝ユ寜閽�
 	private Button btnNext;
 
 	private String currentId;
@@ -141,7 +141,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 							}
 							if (result == SMSSDK.RESULT_COMPLETE) {
 								if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-									// 请求验证码后，跳转到验证码填写页面
+									// 璇锋眰楠岃瘉鐮佸悗锛岃烦杞埌楠岃瘉鐮佸～鍐欓〉闈�
 									boolean smart = (Boolean)data;
 									afterVerificationCodeRequested(smart);
 								}
@@ -149,12 +149,12 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 								if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE
 										&& data != null
 										&& (data instanceof UserInterruptException)) {
-									// 由于此处是开发者自己决定要中断发送的，因此什么都不用做
+									// 鐢变簬姝ゅ鏄紑鍙戣�呰嚜宸卞喅瀹氳涓柇鍙戦�佺殑锛屽洜姝や粈涔堥兘涓嶇敤鍋�
 									return;
 								}
 
 								int status = 0;
-								// 根据服务器返回的网络错误，给toast提示
+								// 鏍规嵁鏈嶅姟鍣ㄨ繑鍥炵殑缃戠粶閿欒锛岀粰toast鎻愮ず
 								try {
 									((Throwable) data).printStackTrace();
 									Throwable throwable = (Throwable) data;
@@ -170,7 +170,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 								} catch (Exception e) {
 									SMSLog.getInstance().w(e);
 								}
-								// 如果木有找到资源，默认提示
+								// 濡傛灉鏈ㄦ湁鎵惧埌璧勬簮锛岄粯璁ゆ彁绀�
 								int resId = 0;
 								if(status >= 400) {
 									resId = getStringRes(activity,
@@ -208,13 +208,13 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 
 	private String getMCC() {
 		TelephonyManager tm = (TelephonyManager) activity.getSystemService(Context.TELEPHONY_SERVICE);
-		// 返回当前手机注册的网络运营商所在国家的MCC+MNC. 如果没注册到网络就为空.
+		// 杩斿洖褰撳墠鎵嬫満娉ㄥ唽鐨勭綉缁滆繍钀ュ晢鎵�鍦ㄥ浗瀹剁殑MCC+MNC. 濡傛灉娌℃敞鍐屽埌缃戠粶灏变负绌�.
 		String networkOperator = tm.getNetworkOperator();
 		if (!TextUtils.isEmpty(networkOperator)) {
 			return networkOperator;
 		}
 
-		// 返回SIM卡运营商所在国家的MCC+MNC. 5位或6位. 如果没有SIM卡返回空
+		// 杩斿洖SIM鍗¤繍钀ュ晢鎵�鍦ㄥ浗瀹剁殑MCC+MNC. 5浣嶆垨6浣�. 濡傛灉娌℃湁SIM鍗¤繑鍥炵┖
 		return tm.getSimOperator();
 	}
 
@@ -263,17 +263,17 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		if (id == id_ll_back) {
 			finish();
 		} else if (id == id_rl_country) {
-			// 国家列表
+			// 鍥藉鍒楄〃
 			CountryPage countryPage = new CountryPage();
 			countryPage.setCountryId(currentId);
 			countryPage.showForResult(activity, null, this);
 		} else if (id == id_btn_next) {
-			// 请求发送短信验证码
+			// 璇锋眰鍙戦�佺煭淇￠獙璇佺爜
 			String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
 			String code = tvCountryNum.getText().toString().trim();
 			showDialog(phone, code);
 		} else if (id == id_iv_clear) {
-			// 清除电话号码输入框
+			// 娓呴櫎鐢佃瘽鍙风爜杈撳叆妗�
 			etPhoneNum.getText().clear();
 		}
 	}
@@ -283,7 +283,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		if (data != null) {
 			int page = (Integer) data.get("page");
 			if (page == 1) {
-				// 国家列表返回
+				// 鍥藉鍒楄〃杩斿洖
 				currentId = (String) data.get("id");
 				String[] country = SMSSDK.getCountry(currentId);
 				if (country != null) {
@@ -292,7 +292,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 					tvCountry.setText(country[0]);
 				}
 			} else if (page == 2) {
-				// 验证码校验返回
+				// 楠岃瘉鐮佹牎楠岃繑鍥�
 				Object res = data.get("res");
 				//Object smart = data.get("smart");
 
@@ -314,7 +314,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		}
 	}
 
-	/** 分割电话号码 */
+	/** 鍒嗗壊鐢佃瘽鍙风爜 */
 	private String splitPhoneNum(String phone) {
 		StringBuilder builder = new StringBuilder(phone);
 		builder.reverse();
@@ -325,11 +325,11 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		return builder.toString();
 	}
 
-	/** 是否请求发送验证码，对话框 */
+	/** 鏄惁璇锋眰鍙戦�侀獙璇佺爜锛屽璇濇 */
 	public void showDialog(final String phone, final String code) {
 		int resId = getStyleRes(activity, "CommonDialog");
 		if (resId > 0) {
-			final String phoneNum = "+" + code + " " + splitPhoneNum(phone);
+			final String phoneNum = /*"+" +*/ code + " " + splitPhoneNum(phone);
 			final Dialog dialog = new Dialog(getContext(), resId);
 
 			LinearLayout layout = SendMsgDialogLayout.create(getContext());
@@ -349,7 +349,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 				((Button) dialog.findViewById(Res.id.btn_dialog_ok)).setOnClickListener(
 						new OnClickListener() {
 								public void onClick(View v) {
-									// 跳转到验证码页面
+									// 璺宠浆鍒伴獙璇佺爜椤甸潰
 									dialog.dismiss();
 
 									if (pd != null && pd.isShowing()) {
@@ -377,7 +377,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		}
 	}
 
-	/** 请求验证码后，跳转到验证码填写页面 */
+	/** 璇锋眰楠岃瘉鐮佸悗锛岃烦杞埌楠岃瘉鐮佸～鍐欓〉闈� */
 	private void afterVerificationCodeRequested(boolean smart) {
 		String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
 		String code = tvCountryNum.getText().toString().trim();
@@ -385,8 +385,8 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 			code = code.substring(1);
 		}
 		String formatedPhone = "+" + code + " " + splitPhoneNum(phone);
-
-		// 验证码页面
+		smart = false;//don't use smart function
+		// 楠岃瘉鐮侀〉闈�
 		if(smart) {
 			SmartVerifyPage smartPage = new SmartVerifyPage();
 			smartPage.setPhone(phone, code, formatedPhone);

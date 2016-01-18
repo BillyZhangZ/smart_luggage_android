@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -123,5 +124,16 @@ OnClickListener{
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if(keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
+	    //    return true;
+	    } else if(keyCode == KeyEvent.KEYCODE_MENU) {//MENU键
+	        //监控/拦截菜单键
+	         return true;
+	    }     
+	    return super.onKeyDown(keyCode, event);
 	}
 }

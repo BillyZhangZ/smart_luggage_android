@@ -71,6 +71,7 @@ public class SettingsFragment extends Fragment implements OnClickListener{
 		SharedPreferences.Editor editor = mySharedPreferences.edit(); 
 		//用putString的方法保存数据 
 		editor.putString("phoneNumber", ""); 
+		editor.putString("Address", ""); 
 
 		//提交当前数据 
 		editor.commit(); 		
