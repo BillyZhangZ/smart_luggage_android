@@ -1,0 +1,401 @@
+/*
+ * 瀹樼綉鍦扮珯:http://www.mob.com
+ * 鎶�鏈敮鎸丵Q: 4006852216
+ * 瀹樻柟寰俊:ShareSDK   锛堝鏋滃彂甯冩柊鐗堟湰鐨勮瘽锛屾垜浠皢浼氱涓�鏃堕棿閫氳繃寰俊灏嗙増鏈洿鏂板唴瀹规帹閫佺粰鎮ㄣ�傚鏋滀娇鐢ㄨ繃绋嬩腑鏈変换浣曢棶棰橈紝涔熷彲浠ラ�氳繃寰俊涓庢垜浠彇寰楄仈绯伙紝鎴戜滑灏嗕細鍦�24灏忔椂鍐呯粰浜堝洖澶嶏級
+ *
+ * Copyright (c) 2014骞� mob.com. All rights reserved.
+ */
+package cn.smssdk.gui;
+
+import static com.mob.tools.utils.R.getBitmapRes;
+import static com.mob.tools.utils.R.getStringRes;
+import static com.mob.tools.utils.R.getStyleRes;
+
+import java.util.HashMap;
+import org.json.JSONObject;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.telephony.TelephonyManager;
+import android.text.Editable;
+import android.text.Html;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import cn.smssdk.EventHandler;
+import cn.smssdk.OnSendMessageHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.UserInterruptException;
+import cn.smssdk.gui.layout.RegisterPageLayout;
+import cn.smssdk.gui.layout.Res;
+import cn.smssdk.gui.layout.SendMsgDialogLayout;
+import cn.smssdk.utils.SMSLog;
+
+import com.mob.tools.FakeActivity;
+
+/** 鐭俊娉ㄥ唽椤甸潰*/
+public class RegisterPage extends FakeActivity implements OnClickListener,
+		TextWatcher {
+
+	// 榛樿浣跨敤涓浗鍖哄彿
+	private static final String DEFAULT_COUNTRY_ID = "42";
+
+	private EventHandler callback;
+
+	// 鍥藉
+	private TextView tvCountry;
+	// 鎵嬫満鍙风爜
+	private EditText etPhoneNum;
+	// 鍥藉缂栧彿
+	private TextView tvCountryNum;
+	// clear 鍙风爜
+	private ImageView ivClear;
+	// 涓嬩竴姝ユ寜閽�
+	private Button btnNext;
+
+	private String currentId;
+	private String currentCode;
+	private EventHandler handler;
+	private Dialog pd;
+	private OnSendMessageHandler osmHandler;
+
+	public void setRegisterCallback(EventHandler callback) {
+		this.callback = callback;
+	}
+
+	public void setOnSendMessageHandler(OnSendMessageHandler h) {
+		osmHandler = h;
+	}
+
+	public void show(Context context) {
+		super.show(context, null);
+	}
+
+	public void onCreate() {
+
+		RegisterPageLayout page = new RegisterPageLayout(activity);
+		LinearLayout layout = page.getLayout();
+
+		if (layout != null) {
+			activity.setContentView(layout);
+			currentId = DEFAULT_COUNTRY_ID;
+
+			View llBack = activity.findViewById(Res.id.ll_back);
+			TextView tv = (TextView) activity.findViewById(Res.id.tv_title);
+			int resId = getStringRes(activity, "smssdk_regist");
+			if (resId > 0) {
+				tv.setText(resId);
+			}
+
+			View viewCountry = activity.findViewById(Res.id.rl_country);
+			btnNext = (Button) activity.findViewById(Res.id.btn_next);
+			tvCountry = (TextView) activity.findViewById(Res.id.tv_country);
+
+			String[] country = getCurrentCountry();
+			// String[] country = SMSSDK.getCountry(currentId);
+			if (country != null) {
+				currentCode = country[1];
+				tvCountry.setText(country[0]);
+			}
+
+			tvCountryNum = (TextView) activity.findViewById(Res.id.tv_country_num);
+			tvCountryNum.setText("+" + currentCode);
+
+			etPhoneNum = (EditText) activity.findViewById(Res.id.et_write_phone);
+			etPhoneNum.setText("");
+			etPhoneNum.addTextChangedListener(this);
+			etPhoneNum.requestFocus();
+			if (etPhoneNum.getText().length() > 0) {
+				btnNext.setEnabled(true);
+
+				ivClear = (ImageView) activity.findViewById(Res.id.iv_clear);
+				ivClear.setVisibility(View.VISIBLE);
+				resId = getBitmapRes(activity, "smssdk_btn_enable");
+				if (resId > 0) {
+					btnNext.setBackgroundResource(resId);
+				}
+			}
+
+			ivClear = (ImageView) activity.findViewById(Res.id.iv_clear);
+
+			llBack.setOnClickListener(this);
+			btnNext.setOnClickListener(this);
+			ivClear.setOnClickListener(this);
+			viewCountry.setOnClickListener(this);
+
+			handler = new EventHandler() {
+				public void afterEvent(final int event, final int result,
+						final Object data) {
+					runOnUIThread(new Runnable() {
+						public void run() {
+							if (pd != null && pd.isShowing()) {
+								pd.dismiss();
+							}
+							if (result == SMSSDK.RESULT_COMPLETE) {
+								if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+									// 璇锋眰楠岃瘉鐮佸悗锛岃烦杞埌楠岃瘉鐮佸～鍐欓〉闈�
+									boolean smart = (Boolean)data;
+									afterVerificationCodeRequested(smart);
+								}
+							} else {
+								if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE
+										&& data != null
+										&& (data instanceof UserInterruptException)) {
+									// 鐢变簬姝ゅ鏄紑鍙戣�呰嚜宸卞喅瀹氳涓柇鍙戦�佺殑锛屽洜姝や粈涔堥兘涓嶇敤鍋�
+									return;
+								}
+
+								int status = 0;
+								// 鏍规嵁鏈嶅姟鍣ㄨ繑鍥炵殑缃戠粶閿欒锛岀粰toast鎻愮ず
+								try {
+									((Throwable) data).printStackTrace();
+									Throwable throwable = (Throwable) data;
+
+									JSONObject object = new JSONObject(
+											throwable.getMessage());
+									String des = object.optString("detail");
+									status = object.optInt("status");
+									if (!TextUtils.isEmpty(des)) {
+										Toast.makeText(activity, des, Toast.LENGTH_SHORT).show();
+										return;
+									}
+								} catch (Exception e) {
+									SMSLog.getInstance().w(e);
+								}
+								// 濡傛灉鏈ㄦ湁鎵惧埌璧勬簮锛岄粯璁ゆ彁绀�
+								int resId = 0;
+								if(status >= 400) {
+									resId = getStringRes(activity,
+											"smssdk_error_desc_"+status);
+								} else {
+									resId = getStringRes(activity,
+											"smssdk_network_error");
+								}
+
+								if (resId > 0) {
+									Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
+								}
+							}
+						}
+					});
+				}
+			};
+		}
+
+	}
+
+	private String[] getCurrentCountry() {
+		String mcc = getMCC();
+		String[] country = null;
+		if (!TextUtils.isEmpty(mcc)) {
+			country = SMSSDK.getCountryByMCC(mcc);
+		}
+
+		if (country == null) {
+			Log.w("SMSSDK", "no country found by MCC: " + mcc);
+			country = SMSSDK.getCountry(DEFAULT_COUNTRY_ID);
+		}
+		return country;
+	}
+
+	private String getMCC() {
+		TelephonyManager tm = (TelephonyManager) activity.getSystemService(Context.TELEPHONY_SERVICE);
+		// 杩斿洖褰撳墠鎵嬫満娉ㄥ唽鐨勭綉缁滆繍钀ュ晢鎵�鍦ㄥ浗瀹剁殑MCC+MNC. 濡傛灉娌℃敞鍐屽埌缃戠粶灏变负绌�.
+		String networkOperator = tm.getNetworkOperator();
+		if (!TextUtils.isEmpty(networkOperator)) {
+			return networkOperator;
+		}
+
+		// 杩斿洖SIM鍗¤繍钀ュ晢鎵�鍦ㄥ浗瀹剁殑MCC+MNC. 5浣嶆垨6浣�. 濡傛灉娌℃湁SIM鍗¤繑鍥炵┖
+		return tm.getSimOperator();
+	}
+
+	public void onResume() {
+		SMSSDK.registerEventHandler(handler);
+	}
+
+	public void onPause() {
+		SMSSDK.unregisterEventHandler(handler);
+	}
+
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+
+	}
+
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		if (s.length() > 0) {
+			btnNext.setEnabled(true);
+			ivClear.setVisibility(View.VISIBLE);
+			int resId = getBitmapRes(activity, "smssdk_btn_enable");
+			if (resId > 0) {
+				btnNext.setBackgroundResource(resId);
+			}
+		} else {
+			btnNext.setEnabled(false);
+			ivClear.setVisibility(View.GONE);
+			int resId = getBitmapRes(activity, "smssdk_btn_disenable");
+			if (resId > 0) {
+				btnNext.setBackgroundResource(resId);
+			}
+		}
+	}
+
+	public void afterTextChanged(Editable s) {
+
+	}
+
+	public void onClick(View v) {
+		int id = v.getId();
+		int id_ll_back = Res.id.ll_back;
+		int id_rl_country = Res.id.rl_country;
+		int id_btn_next = Res.id.btn_next;
+		int id_iv_clear = Res.id.iv_clear;
+
+		if (id == id_ll_back) {
+			finish();
+		} else if (id == id_rl_country) {
+			// 鍥藉鍒楄〃
+			CountryPage countryPage = new CountryPage();
+			countryPage.setCountryId(currentId);
+			countryPage.showForResult(activity, null, this);
+		} else if (id == id_btn_next) {
+			// 璇锋眰鍙戦�佺煭淇￠獙璇佺爜
+			String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
+			String code = tvCountryNum.getText().toString().trim();
+			showDialog(phone, code);
+		} else if (id == id_iv_clear) {
+			// 娓呴櫎鐢佃瘽鍙风爜杈撳叆妗�
+			etPhoneNum.getText().clear();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public void onResult(HashMap<String, Object> data) {
+		if (data != null) {
+			int page = (Integer) data.get("page");
+			if (page == 1) {
+				// 鍥藉鍒楄〃杩斿洖
+				currentId = (String) data.get("id");
+				String[] country = SMSSDK.getCountry(currentId);
+				if (country != null) {
+					currentCode = country[1];
+					tvCountryNum.setText("+" + currentCode);
+					tvCountry.setText(country[0]);
+				}
+			} else if (page == 2) {
+				// 楠岃瘉鐮佹牎楠岃繑鍥�
+				Object res = data.get("res");
+				//Object smart = data.get("smart");
+
+				HashMap<String, Object> phoneMap = (HashMap<String, Object>) data.get("phone");
+				if (res != null && phoneMap != null) {
+					int resId = getStringRes(activity, "smssdk_your_ccount_is_verified");
+					if (resId > 0) {
+						Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
+					}
+
+					if (callback != null) {
+						callback.afterEvent(
+								SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE,
+								SMSSDK.RESULT_COMPLETE, phoneMap);
+					}
+					finish();
+				}
+			}
+		}
+	}
+
+	/** 鍒嗗壊鐢佃瘽鍙风爜 */
+	private String splitPhoneNum(String phone) {
+		StringBuilder builder = new StringBuilder(phone);
+		builder.reverse();
+		for (int i = 4, len = builder.length(); i < len; i += 5) {
+			builder.insert(i, ' ');
+		}
+		builder.reverse();
+		return builder.toString();
+	}
+
+	/** 鏄惁璇锋眰鍙戦�侀獙璇佺爜锛屽璇濇 */
+	public void showDialog(final String phone, final String code) {
+		int resId = getStyleRes(activity, "CommonDialog");
+		if (resId > 0) {
+			final String phoneNum = /*"+" +*/ code + " " + splitPhoneNum(phone);
+			final Dialog dialog = new Dialog(getContext(), resId);
+
+			LinearLayout layout = SendMsgDialogLayout.create(getContext());
+
+			if (layout != null) {
+				dialog.setContentView(layout);
+
+				((TextView) dialog.findViewById(Res.id.tv_phone)).setText(phoneNum);
+				TextView tv = (TextView) dialog.findViewById(Res.id.tv_dialog_hint);
+				resId = getStringRes(activity, "smssdk_make_sure_mobile_detail");
+				if (resId > 0) {
+					String text = getContext().getString(resId);
+
+					tv.setText(Html.fromHtml(text));
+				}
+
+				((Button) dialog.findViewById(Res.id.btn_dialog_ok)).setOnClickListener(
+						new OnClickListener() {
+								public void onClick(View v) {
+									// 璺宠浆鍒伴獙璇佺爜椤甸潰
+									dialog.dismiss();
+
+									if (pd != null && pd.isShowing()) {
+										pd.dismiss();
+									}
+									pd = CommonDialog.ProgressDialog(activity);
+									if (pd != null) {
+										pd.show();
+									}
+									Log.e("verification phone ==>>", phone);
+									SMSSDK.getVerificationCode(code, phone.trim(), osmHandler);
+								}
+							});
+
+
+					((Button) dialog.findViewById(Res.id.btn_dialog_cancel)).setOnClickListener(
+							new OnClickListener() {
+								public void onClick(View v) {
+									dialog.dismiss();
+								}
+							});
+				dialog.setCanceledOnTouchOutside(true);
+				dialog.show();
+			}
+		}
+	}
+
+	/** 璇锋眰楠岃瘉鐮佸悗锛岃烦杞埌楠岃瘉鐮佸～鍐欓〉闈� */
+	private void afterVerificationCodeRequested(boolean smart) {
+		String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
+		String code = tvCountryNum.getText().toString().trim();
+		if (code.startsWith("+")) {
+			code = code.substring(1);
+		}
+		String formatedPhone = "+" + code + " " + splitPhoneNum(phone);
+		smart = false;//don't use smart function
+		// 楠岃瘉鐮侀〉闈�
+		if(smart) {
+			SmartVerifyPage smartPage = new SmartVerifyPage();
+			smartPage.setPhone(phone, code, formatedPhone);
+			smartPage.showForResult(activity, null, this);
+		} else {
+			IdentifyNumPage page = new IdentifyNumPage();
+			page.setPhone(phone, code, formatedPhone);
+			page.showForResult(activity, null, this);
+		}
+	}
+
+}

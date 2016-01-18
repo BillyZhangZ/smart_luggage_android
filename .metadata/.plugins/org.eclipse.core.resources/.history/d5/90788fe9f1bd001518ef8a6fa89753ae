@@ -45,7 +45,6 @@ public class StartUpActivity extends Activity implements Callback{
 
 	//control double click back key to exit app
     private long mExitTime;
-    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

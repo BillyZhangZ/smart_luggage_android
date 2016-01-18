@@ -272,7 +272,7 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	{
 		//Toast.makeText(getApplicationContext(), "BLE Unlock button",
 		//Toast.LENGTH_SHORT).show();
-		sendData("AT+LOCKOFF\r");
+		sendData("AT+LOCKON\r");
 
 		 //Toast.makeText(getActivity().getApplicationContext(), "设备未绑定", Toast.LENGTH_SHORT).show();
 	}

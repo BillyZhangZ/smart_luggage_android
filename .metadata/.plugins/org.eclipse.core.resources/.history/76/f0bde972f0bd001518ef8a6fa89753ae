@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -43,9 +42,6 @@ public class StartUpActivity extends Activity implements Callback{
 
 	public static final int EVENT_NEED_TO_LOGIN = 0x80;
 
-	//control double click back key to exit app
-    private long mExitTime;
-    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -150,8 +146,17 @@ public class StartUpActivity extends Activity implements Callback{
 		//实例化SharedPreferences对象（第一步） 
 		SharedPreferences mySharedPreferences= getSharedPreferences("account", 
 		MODE_PRIVATE); 
-				
+		//实例化SharedPreferences.Editor对象（第二步） 
+		//SharedPreferences.Editor editor = mySharedPreferences.edit(); 
+		//用putString的方法保存数据 
+	//	editor.putString("name", "Karl"); 
+	//	editor.putString("habit", "sleep"); 
+		//提交当前数据 
+//		editor.commit(); 		
 		String phoneNumber =mySharedPreferences.getString("phoneNumber", ""); 
+		//String habit =mySharedPreferences.getString("habit", ""); 
+		//使用toast信息提示框显示信息 
+		
 		//Toast.makeText(this , "账户："+"\n"+"phoneNumber：" + phoneNumber + "\n", 
 		//Toast.LENGTH_LONG).show(); 
 		
@@ -209,25 +214,5 @@ public class StartUpActivity extends Activity implements Callback{
 			registerPage.show(this);
 		}
 		return false;
-	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-		if(keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
-			 if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                // Object mHelperUtils;
-                 Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                 mExitTime = System.currentTimeMillis();
-
-	         } else {
-	                 finish();
-	         }
-	         return true;
-         } else if(keyCode == KeyEvent.KEYCODE_MENU) {//MENU键
-	        //监控/拦截菜单键
-	         return true;
-	    }     
-	    return super.onKeyDown(keyCode, event);
 	}
 }
