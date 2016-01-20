@@ -13,6 +13,8 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.zzy.pattern.GuideGesturePasswordActivity;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -52,12 +54,16 @@ public class StartUpActivity extends Activity implements Callback{
 		setContentView(R.layout.activity_start_up);
 		((LauncherTextView)findViewById(R.id.start)).setStart(true);
 		
+		/**
+		 * test
+		 */
+		Intent intent = new Intent(this, GuideGesturePasswordActivity.class);
+		startActivity(intent);
+		
+		/*
 		mLogin = isLogin();
-
-				
 		new Handler().postDelayed(new Runnable() {    
 	        public void run() {   
-	            //你需要跳转的地方的代码  
 	            final Intent intent = new Intent();
 	            if(mLogin == true)
 	            {
@@ -71,37 +77,9 @@ public class StartUpActivity extends Activity implements Callback{
 	            	Message msg = new Message();
 					msg.arg1 = EVENT_NEED_TO_LOGIN;
 					handler.sendMessage(msg);
-					
-	            	/*
-	        		initSDK();
-	        		RegisterPage registerPage = new RegisterPage();
-	    			registerPage.setRegisterCallback(new EventHandler() {
-	    				public void afterEvent(int event, int result, Object data) {
-	    					if (result == SMSSDK.RESULT_COMPLETE) {
-	    						@SuppressWarnings("unchecked")
-	    						HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
-	    						String country = (String) phoneMap.get("country");
-	    						String phone = (String) phoneMap.get("phone");
-	    						Login(phone);
-	    						//registerUser(country, phone);
-	    			            intent.setClass(StartUpActivity.this, LuggageActivity.class);
-	    		        		startActivity(intent);
-	    			            finish();
-	    					}
-	    				}
-	    			});
-	    			registerPage.show(this);
-	    			*/
-	            	
-	        		//intent.setClass(StartUpActivity.this, LoginActivity.class);
 	            }
-
-	           // intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-	           /// intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-	           // startActivity(intent);
-	           // finish();  
 	        }    
-	    }, 3000); //延迟2秒跳转 
+	    }, 3000);  */
 	}
 	private void initSDK() {
 		SMSSDK.initSDK(this, APPKEY, APPSECRET, true);

@@ -8,35 +8,65 @@
 package com.zzy.luggage;
 
 public final class R {
+    public static final class anim {
+        public static final int interpolator_cycle=0x7f040000;
+        public static final int shake=0x7f040001;
+        public static final int shake_x=0x7f040002;
+        public static final int shake_y=0x7f040003;
+    }
     public static final class array {
-        public static final int smssdk_country_group_a=0x7f050000;
-        public static final int smssdk_country_group_b=0x7f050001;
-        public static final int smssdk_country_group_c=0x7f050002;
-        public static final int smssdk_country_group_d=0x7f050003;
-        public static final int smssdk_country_group_e=0x7f050004;
-        public static final int smssdk_country_group_f=0x7f050005;
-        public static final int smssdk_country_group_g=0x7f050006;
-        public static final int smssdk_country_group_h=0x7f050007;
-        public static final int smssdk_country_group_i=0x7f050008;
-        public static final int smssdk_country_group_j=0x7f050009;
-        public static final int smssdk_country_group_k=0x7f05000a;
-        public static final int smssdk_country_group_l=0x7f05000b;
-        public static final int smssdk_country_group_m=0x7f05000c;
-        public static final int smssdk_country_group_n=0x7f05000d;
-        public static final int smssdk_country_group_o=0x7f05000e;
-        public static final int smssdk_country_group_p=0x7f05000f;
-        public static final int smssdk_country_group_q=0x7f050010;
-        public static final int smssdk_country_group_r=0x7f050011;
-        public static final int smssdk_country_group_s=0x7f050012;
-        public static final int smssdk_country_group_t=0x7f050013;
-        public static final int smssdk_country_group_u=0x7f050014;
-        public static final int smssdk_country_group_v=0x7f050015;
-        public static final int smssdk_country_group_w=0x7f050016;
-        public static final int smssdk_country_group_x=0x7f050017;
-        public static final int smssdk_country_group_y=0x7f050018;
-        public static final int smssdk_country_group_z=0x7f050019;
+        public static final int smssdk_country_group_a=0x7f060000;
+        public static final int smssdk_country_group_b=0x7f060001;
+        public static final int smssdk_country_group_c=0x7f060002;
+        public static final int smssdk_country_group_d=0x7f060003;
+        public static final int smssdk_country_group_e=0x7f060004;
+        public static final int smssdk_country_group_f=0x7f060005;
+        public static final int smssdk_country_group_g=0x7f060006;
+        public static final int smssdk_country_group_h=0x7f060007;
+        public static final int smssdk_country_group_i=0x7f060008;
+        public static final int smssdk_country_group_j=0x7f060009;
+        public static final int smssdk_country_group_k=0x7f06000a;
+        public static final int smssdk_country_group_l=0x7f06000b;
+        public static final int smssdk_country_group_m=0x7f06000c;
+        public static final int smssdk_country_group_n=0x7f06000d;
+        public static final int smssdk_country_group_o=0x7f06000e;
+        public static final int smssdk_country_group_p=0x7f06000f;
+        public static final int smssdk_country_group_q=0x7f060010;
+        public static final int smssdk_country_group_r=0x7f060011;
+        public static final int smssdk_country_group_s=0x7f060012;
+        public static final int smssdk_country_group_t=0x7f060013;
+        public static final int smssdk_country_group_u=0x7f060014;
+        public static final int smssdk_country_group_v=0x7f060015;
+        public static final int smssdk_country_group_w=0x7f060016;
+        public static final int smssdk_country_group_x=0x7f060017;
+        public static final int smssdk_country_group_y=0x7f060018;
+        public static final int smssdk_country_group_z=0x7f060019;
     }
     public static final class attr {
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int arrowGreenUp=0x7f010017;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int arrowRedUp=0x7f010018;
+        /** 
+             Aspect to use when drawing LockPatternView. Choices are "square"(default), "lock_width"
+             or "lock_height"
+        
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>square</code></td><td>0</td><td></td></tr>
+<tr><td><code>lockWidth</code></td><td>1</td><td></td></tr>
+<tr><td><code>lockHeight</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int aspect=0x7f010010;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -84,6 +114,26 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int border_width=0x7f01000e;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int btnNormal=0x7f010012;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int btnTouched=0x7f010013;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int circleGreen=0x7f010015;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int circleNormal=0x7f010014;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int circleRed=0x7f010016;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -100,6 +150,15 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fadeEnabled=0x7f01000a;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int line=0x7f010011;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -171,450 +230,454 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         /** 蜜色 
          */
-        public static final int aliceblue=0x7f060036;
+        public static final int aliceblue=0x7f070036;
         /** 亚麻色 
          */
-        public static final int antiquewhite=0x7f06002c;
+        public static final int antiquewhite=0x7f07002c;
         /** 中灰兰色 
          */
-        public static final int aqua=0x7f06008c;
+        public static final int aqua=0x7f07008c;
         /** 粟色 
          */
-        public static final int aquamarine=0x7f06006d;
+        public static final int aquamarine=0x7f07006d;
         /** 沙褐色
          */
-        public static final int azure=0x7f060034;
+        public static final int azure=0x7f070034;
         /** 烟白色 
          */
-        public static final int beige=0x7f060031;
+        public static final int beige=0x7f070031;
         /** 浅玫瑰色 
          */
-        public static final int bisque=0x7f060017;
+        public static final int bisque=0x7f070017;
         /** 海军色 
          */
-        public static final int black=0x7f06009b;
+        public static final int black=0x7f07009b;
         /** 番木色 
          */
-        public static final int blanchedalmond=0x7f060015;
+        public static final int blanchedalmond=0x7f070015;
         /** 暗绿色 
          */
-        public static final int blue=0x7f060097;
+        public static final int blue=0x7f070097;
         /** 暗红色 
          */
-        public static final int blueviolet=0x7f060065;
+        public static final int blueviolet=0x7f070065;
         /** 暗灰色 
          */
-        public static final int brown=0x7f06005a;
+        public static final int brown=0x7f07005a;
         /** 亮青色 
          */
-        public static final int burlywood=0x7f06003e;
+        public static final int burlywood=0x7f07003e;
         /** 菊兰色 
          */
-        public static final int cadetblue=0x7f06007b;
+        public static final int cadetblue=0x7f07007b;
         /** 碧绿色
          */
-        public static final int chartreuse=0x7f06006e;
+        public static final int chartreuse=0x7f07006e;
         /** 茶色 
          */
-        public static final int chocolate=0x7f060049;
+        public static final int chocolate=0x7f070049;
+        public static final int color_hei_8=0x7f07009d;
         /** 暗桔黄色 
          */
-        public static final int coral=0x7f060021;
+        public static final int coral=0x7f070021;
         /** 中绿色 
          */
-        public static final int cornflowerblue=0x7f06007a;
+        public static final int cornflowerblue=0x7f07007a;
         /** 柠檬绸色 
          */
-        public static final int cornsilk=0x7f060011;
+        public static final int cornsilk=0x7f070011;
         /** 淡灰色 
          */
-        public static final int crimson=0x7f060041;
+        public static final int crimson=0x7f070041;
         /** 浅绿色 
          */
-        public static final int cyan=0x7f06008d;
+        public static final int cyan=0x7f07008d;
         /** 中兰色 
          */
-        public static final int darkblue=0x7f060099;
+        public static final int darkblue=0x7f070099;
         /** 深天蓝色 
          */
-        public static final int darkcyan=0x7f060093;
+        public static final int darkcyan=0x7f070093;
         /** 中粉紫色 
          */
-        public static final int darkgoldenrod=0x7f060051;
+        public static final int darkgoldenrod=0x7f070051;
         /** 亮蓝色 
          */
-        public static final int darkgray=0x7f060058;
+        public static final int darkgray=0x7f070058;
         /** 绿色 
          */
-        public static final int darkgreen=0x7f060096;
+        public static final int darkgreen=0x7f070096;
         /** 暗灰色 
          */
-        public static final int darkgrey=0x7f060059;
+        public static final int darkgrey=0x7f070059;
         /** 银色 
          */
-        public static final int darkkhaki=0x7f06004e;
+        public static final int darkkhaki=0x7f07004e;
         /** 重褐色 
          */
-        public static final int darkmagenta=0x7f060063;
+        public static final int darkmagenta=0x7f070063;
         /** 军兰色 
          */
-        public static final int darkolivegreen=0x7f06007c;
+        public static final int darkolivegreen=0x7f07007c;
         /** 亮肉色 
          */
-        public static final int darkorange=0x7f060020;
+        public static final int darkorange=0x7f070020;
         /** 赭色 
          */
-        public static final int darkorchid=0x7f06005c;
+        public static final int darkorchid=0x7f07005c;
         /** 暗洋红 
          */
-        public static final int darkred=0x7f060064;
+        public static final int darkred=0x7f070064;
         /** 紫罗兰色 
          */
-        public static final int darksalmon=0x7f06003b;
+        public static final int darksalmon=0x7f07003b;
         /** 亮绿色 
          */
-        public static final int darkseagreen=0x7f060061;
+        public static final int darkseagreen=0x7f070061;
         /** 中绿宝石 
          */
-        public static final int darkslateblue=0x7f06007f;
+        public static final int darkslateblue=0x7f07007f;
         /** 橙绿色 
          */
-        public static final int darkslategray=0x7f060085;
+        public static final int darkslategray=0x7f070085;
         /** 暗瓦灰色 
          */
-        public static final int darkslategrey=0x7f060086;
+        public static final int darkslategrey=0x7f070086;
         /** 中春绿色 
          */
-        public static final int darkturquoise=0x7f060091;
+        public static final int darkturquoise=0x7f070091;
         /** 苍绿色 
          */
-        public static final int darkviolet=0x7f06005e;
+        public static final int darkviolet=0x7f07005e;
         /** 红橙色 
          */
-        public static final int deeppink=0x7f060025;
+        public static final int deeppink=0x7f070025;
         /** 暗宝石绿 
          */
-        public static final int deepskyblue=0x7f060092;
+        public static final int deepskyblue=0x7f070092;
         /** 石蓝色 
          */
-        public static final int dimgray=0x7f060077;
+        public static final int dimgray=0x7f070077;
         /** 暗灰色 
          */
-        public static final int dimgrey=0x7f060078;
+        public static final int dimgrey=0x7f070078;
         /** 亮海蓝色 
          */
-        public static final int dodgerblue=0x7f06008a;
+        public static final int dodgerblue=0x7f07008a;
         /** 暗金黄色 
          */
-        public static final int firebrick=0x7f060052;
+        public static final int firebrick=0x7f070052;
         /** 雪白色 
          */
-        public static final int floralwhite=0x7f06000f;
+        public static final int floralwhite=0x7f07000f;
         /** 海绿色 
          */
-        public static final int forestgreen=0x7f060088;
+        public static final int forestgreen=0x7f070088;
         /** 深粉红色 
          */
-        public static final int fuchsia=0x7f060026;
+        public static final int fuchsia=0x7f070026;
         /** 洋李色 
          */
-        public static final int gainsboro=0x7f060040;
+        public static final int gainsboro=0x7f070040;
+        /** 黑色 
+         */
+        public static final int gesture_background=0x7f07009c;
         /** 鲜肉色 
          */
-        public static final int ghostwhite=0x7f06002e;
+        public static final int ghostwhite=0x7f07002e;
         /** 桃色 
          */
-        public static final int gold=0x7f06001b;
+        public static final int gold=0x7f07001b;
         /** 苍紫罗兰色 
          */
-        public static final int goldenrod=0x7f060043;
+        public static final int goldenrod=0x7f070043;
         /** 天蓝色 
          */
-        public static final int gray=0x7f060068;
+        public static final int gray=0x7f070068;
         /** 水鸭色 
          */
-        public static final int green=0x7f060095;
+        public static final int green=0x7f070095;
         /** 苍宝石绿 
          */
-        public static final int greenyellow=0x7f060056;
+        public static final int greenyellow=0x7f070056;
         /** 灰色 
          */
-        public static final int grey=0x7f060069;
+        public static final int grey=0x7f070069;
         /** 天蓝色 
          */
-        public static final int honeydew=0x7f060035;
+        public static final int honeydew=0x7f070035;
         /** 珊瑚色 
          */
-        public static final int hotpink=0x7f060022;
+        public static final int hotpink=0x7f070022;
         /** 秘鲁色 
          */
-        public static final int indianred=0x7f06004b;
+        public static final int indianred=0x7f07004b;
         /** 暗橄榄绿  
          */
-        public static final int indigo=0x7f06007d;
+        public static final int indigo=0x7f07007d;
         /** 白色 
          */
-        public static final int ivory=0x7f06000b;
+        public static final int ivory=0x7f07000b;
         /** 艾利斯兰 
          */
-        public static final int khaki=0x7f060037;
+        public static final int khaki=0x7f070037;
         /** 暗肉色 
          */
-        public static final int lavender=0x7f06003c;
+        public static final int lavender=0x7f07003c;
         /** 海贝色 
          */
-        public static final int lavenderblush=0x7f060013;
+        public static final int lavenderblush=0x7f070013;
         /** 黄绿色 
          */
-        public static final int lawngreen=0x7f06006f;
+        public static final int lawngreen=0x7f07006f;
         /** 花白色 
          */
-        public static final int lemonchiffon=0x7f060010;
-        public static final int light_blue=0x7f060009;
+        public static final int lemonchiffon=0x7f070010;
+        public static final int light_blue=0x7f070009;
         /** 黄绿色 
          */
-        public static final int lightblue=0x7f060057;
+        public static final int lightblue=0x7f070057;
         /** 黄褐色 
          */
-        public static final int lightcoral=0x7f060038;
+        public static final int lightcoral=0x7f070038;
         /** 淡紫色 
          */
-        public static final int lightcyan=0x7f06003d;
+        public static final int lightcyan=0x7f07003d;
         /** 老花色 
          */
-        public static final int lightgoldenrodyellow=0x7f06002a;
+        public static final int lightgoldenrodyellow=0x7f07002a;
         /** 蓟色 
          */
-        public static final int lightgray=0x7f060046;
+        public static final int lightgray=0x7f070046;
         /** 中紫色 
          */
-        public static final int lightgreen=0x7f060060;
+        public static final int lightgreen=0x7f070060;
         /** 亮灰色 
          */
-        public static final int lightgrey=0x7f060047;
+        public static final int lightgrey=0x7f070047;
         /** 粉红色 
          */
-        public static final int lightpink=0x7f06001d;
+        public static final int lightpink=0x7f07001d;
         /** 橙色 
          */
-        public static final int lightsalmon=0x7f06001f;
+        public static final int lightsalmon=0x7f07001f;
         /** 森林绿 
          */
-        public static final int lightseagreen=0x7f060089;
+        public static final int lightseagreen=0x7f070089;
         /** 紫罗兰蓝色 
          */
-        public static final int lightskyblue=0x7f060066;
+        public static final int lightskyblue=0x7f070066;
         /** 中暗蓝色 
          */
-        public static final int lightslategray=0x7f060071;
+        public static final int lightslategray=0x7f070071;
         /** 亮蓝灰 
          */
-        public static final int lightslategrey=0x7f060072;
+        public static final int lightslategrey=0x7f070072;
         /** 粉蓝色 
          */
-        public static final int lightsteelblue=0x7f060054;
+        public static final int lightsteelblue=0x7f070054;
         /** 象牙色 
          */
-        public static final int lightyellow=0x7f06000c;
+        public static final int lightyellow=0x7f07000c;
         /** 春绿色
          */
-        public static final int lime=0x7f06008f;
+        public static final int lime=0x7f07008f;
         /** 中海蓝 
          */
-        public static final int limegreen=0x7f060084;
+        public static final int limegreen=0x7f070084;
         /** 亮金黄色 
          */
-        public static final int linen=0x7f06002b;
+        public static final int linen=0x7f07002b;
         /** 紫红色 
          */
-        public static final int magenta=0x7f060027;
+        public static final int magenta=0x7f070027;
         /** 紫色 
          */
-        public static final int maroon=0x7f06006c;
+        public static final int maroon=0x7f07006c;
         /** 暗灰色 
          */
-        public static final int mediumaquamarine=0x7f060079;
+        public static final int mediumaquamarine=0x7f070079;
         /** 蓝色 
          */
-        public static final int mediumblue=0x7f060098;
+        public static final int mediumblue=0x7f070098;
         /** 褐玫瑰红 
          */
-        public static final int mediumorchid=0x7f060050;
+        public static final int mediumorchid=0x7f070050;
         /** 暗紫罗兰色 
          */
-        public static final int mediumpurple=0x7f06005f;
+        public static final int mediumpurple=0x7f07005f;
         /** 青绿色 
          */
-        public static final int mediumseagreen=0x7f060083;
+        public static final int mediumseagreen=0x7f070083;
         /** 草绿色 
          */
-        public static final int mediumslateblue=0x7f060070;
+        public static final int mediumslateblue=0x7f070070;
         /** 酸橙色 
          */
-        public static final int mediumspringgreen=0x7f060090;
+        public static final int mediumspringgreen=0x7f070090;
         /** 靛青色 
          */
-        public static final int mediumturquoise=0x7f06007e;
+        public static final int mediumturquoise=0x7f07007e;
         /** 印第安红 
          */
-        public static final int mediumvioletred=0x7f06004c;
+        public static final int mediumvioletred=0x7f07004c;
         /** 闪兰色 
          */
-        public static final int midnightblue=0x7f06008b;
+        public static final int midnightblue=0x7f07008b;
         /** 幽灵白 
          */
-        public static final int mintcream=0x7f06002f;
+        public static final int mintcream=0x7f07002f;
         /** 白杏色 
          */
-        public static final int mistyrose=0x7f060016;
+        public static final int mistyrose=0x7f070016;
         /** 桔黄色 
          */
-        public static final int moccasin=0x7f060018;
+        public static final int moccasin=0x7f070018;
         /** 鹿皮色 
          */
-        public static final int navajowhite=0x7f060019;
+        public static final int navajowhite=0x7f070019;
         /** 暗蓝色 
          */
-        public static final int navy=0x7f06009a;
+        public static final int navy=0x7f07009a;
         /** 红色 
          */
-        public static final int oldlace=0x7f060029;
+        public static final int oldlace=0x7f070029;
         /** 灰色 
          */
-        public static final int olive=0x7f06006a;
+        public static final int olive=0x7f07006a;
         /** 灰石色 
          */
-        public static final int olivedrab=0x7f060075;
+        public static final int olivedrab=0x7f070075;
         /** 亮粉红色
          */
-        public static final int orange=0x7f06001e;
+        public static final int orange=0x7f07001e;
         /** 西红柿色 
          */
-        public static final int orangered=0x7f060024;
+        public static final int orangered=0x7f070024;
         /** 金麒麟色 
          */
-        public static final int orchid=0x7f060044;
+        public static final int orchid=0x7f070044;
         /** 亮珊瑚色 
          */
-        public static final int palegoldenrod=0x7f060039;
+        public static final int palegoldenrod=0x7f070039;
         /** 暗紫色
          */
-        public static final int palegreen=0x7f06005d;
+        public static final int palegreen=0x7f07005d;
         /** 亮钢兰色 
          */
-        public static final int paleturquoise=0x7f060055;
+        public static final int paleturquoise=0x7f070055;
         /** 暗深红色 
          */
-        public static final int palevioletred=0x7f060042;
+        public static final int palevioletred=0x7f070042;
         /** 淡紫红 
          */
-        public static final int papayawhip=0x7f060014;
+        public static final int papayawhip=0x7f070014;
         /** 纳瓦白 
          */
-        public static final int peachpuff=0x7f06001a;
+        public static final int peachpuff=0x7f07001a;
         /** 巧可力色 
          */
-        public static final int peru=0x7f06004a;
+        public static final int peru=0x7f07004a;
         /** 金色 
          */
-        public static final int pink=0x7f06001c;
+        public static final int pink=0x7f07001c;
         /** 实木色 
          */
-        public static final int plum=0x7f06003f;
+        public static final int plum=0x7f07003f;
         /** 火砖色 
          */
-        public static final int powderblue=0x7f060053;
+        public static final int powderblue=0x7f070053;
         /** 橄榄色 
          */
-        public static final int purple=0x7f06006b;
+        public static final int purple=0x7f07006b;
         /** 红紫色 
          */
-        public static final int red=0x7f060028;
+        public static final int red=0x7f070028;
         /** 暗黄褐色 
          */
-        public static final int rosybrown=0x7f06004f;
+        public static final int rosybrown=0x7f07004f;
         /** 钢兰色 
          */
-        public static final int royalblue=0x7f060081;
+        public static final int royalblue=0x7f070081;
         /** 暗海兰色 
          */
-        public static final int saddlebrown=0x7f060062;
+        public static final int saddlebrown=0x7f070062;
         /** 古董白 
          */
-        public static final int salmon=0x7f06002d;
+        public static final int salmon=0x7f07002d;
         /** 浅黄色 
          */
-        public static final int sandybrown=0x7f060033;
+        public static final int sandybrown=0x7f070033;
         /** 暗瓦灰色 
          */
-        public static final int seagreen=0x7f060087;
+        public static final int seagreen=0x7f070087;
         /** 米绸色 
          */
-        public static final int seashell=0x7f060012;
+        public static final int seashell=0x7f070012;
         /** 褐色 
          */
-        public static final int sienna=0x7f06005b;
+        public static final int sienna=0x7f07005b;
         /** 中紫罗兰色 
          */
-        public static final int silver=0x7f06004d;
+        public static final int silver=0x7f07004d;
         /** 亮天蓝色 
          */
-        public static final int skyblue=0x7f060067;
+        public static final int skyblue=0x7f070067;
         /** 深绿褐色 
          */
-        public static final int slateblue=0x7f060076;
+        public static final int slateblue=0x7f070076;
         /** 亮蓝灰 
          */
-        public static final int slategray=0x7f060073;
+        public static final int slategray=0x7f070073;
         /** 灰石色 
          */
-        public static final int slategrey=0x7f060074;
-        public static final int smssdk_black=0x7f060007;
-        public static final int smssdk_gray=0x7f060008;
-        public static final int smssdk_gray_press=0x7f060001;
-        public static final int smssdk_lv_item_divider=0x7f060006;
-        public static final int smssdk_lv_item_selector=0x7f060005;
-        public static final int smssdk_lv_title_color=0x7f060004;
-        public static final int smssdk_lv_tv_color=0x7f060003;
-        public static final int smssdk_transparent=0x7f060002;
-        public static final int smssdk_white=0x7f060000;
+        public static final int slategrey=0x7f070074;
+        public static final int smssdk_black=0x7f070007;
+        public static final int smssdk_gray=0x7f070008;
+        public static final int smssdk_gray_press=0x7f070001;
+        public static final int smssdk_lv_item_divider=0x7f070006;
+        public static final int smssdk_lv_item_selector=0x7f070005;
+        public static final int smssdk_lv_title_color=0x7f070004;
+        public static final int smssdk_lv_tv_color=0x7f070003;
+        public static final int smssdk_transparent=0x7f070002;
+        public static final int smssdk_white=0x7f070000;
         /** 黄色 
          */
-        public static final int snow=0x7f06000e;
+        public static final int snow=0x7f07000e;
         /** 青色 
          */
-        public static final int springgreen=0x7f06008e;
+        public static final int springgreen=0x7f07008e;
         /** 暗灰蓝色 
          */
-        public static final int steelblue=0x7f060080;
+        public static final int steelblue=0x7f070080;
         /** 亮灰色 
          */
-        public static final int tan=0x7f060048;
+        public static final int tan=0x7f070048;
         /** 暗青色 
          */
-        public static final int teal=0x7f060094;
+        public static final int teal=0x7f070094;
         /** 淡紫色 
          */
-        public static final int thistle=0x7f060045;
+        public static final int thistle=0x7f070045;
         /** 热粉红色 
          */
-        public static final int tomato=0x7f060023;
+        public static final int tomato=0x7f070023;
         /** 皇家蓝 
          */
-        public static final int turquoise=0x7f060082;
+        public static final int turquoise=0x7f070082;
         /** 苍麒麟色 
          */
-        public static final int violet=0x7f06003a;
+        public static final int violet=0x7f07003a;
         /** 米色 
          */
-        public static final int wheat=0x7f060032;
-        public static final int white=0x7f06000a;
+        public static final int wheat=0x7f070032;
+        public static final int white=0x7f07000a;
         /** 薄荷色 
          */
-        public static final int whitesmoke=0x7f060030;
+        public static final int whitesmoke=0x7f070030;
         /** 亮黄色
          */
-        public static final int yellow=0x7f06000d;
+        public static final int yellow=0x7f07000d;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -624,119 +687,169 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f0a0000;
-        public static final int activity_vertical_margin=0x7f0a0001;
+        public static final int activity_horizontal_margin=0x7f0b0000;
+        public static final int activity_vertical_margin=0x7f0b0001;
         /**  Semantic definitions 
          */
-        public static final int horizontal_page_margin=0x7f0a0009;
-        public static final int margin_huge=0x7f0a0008;
-        public static final int margin_large=0x7f0a0007;
-        public static final int margin_medium=0x7f0a0006;
-        public static final int margin_small=0x7f0a0005;
+        public static final int horizontal_page_margin=0x7f0b0009;
+        public static final int margin_huge=0x7f0b0008;
+        public static final int margin_large=0x7f0b0007;
+        public static final int margin_medium=0x7f0b0006;
+        public static final int margin_small=0x7f0b0005;
         /**  Define standard dimensions to comply with Holo-style grids and rhythm. 
          */
-        public static final int margin_tiny=0x7f0a0004;
-        public static final int shadow_width=0x7f0a0002;
-        public static final int slidingmenu_offset=0x7f0a0003;
-        public static final int vertical_page_margin=0x7f0a000a;
+        public static final int margin_tiny=0x7f0b0004;
+        public static final int shadow_width=0x7f0b0002;
+        public static final int slidingmenu_offset=0x7f0b0003;
+        public static final int vertical_page_margin=0x7f0b000a;
     }
     public static final class drawable {
-        public static final int biz_news_local_weather_bg_big=0x7f020000;
-        public static final int biz_pc_account_line=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int ic_top_bar_category=0x7f020003;
-        public static final int location_marker=0x7f020004;
-        public static final int luggage=0x7f020005;
-        public static final int shape=0x7f020006;
-        public static final int smssdk_back_arrow=0x7f020007;
-        public static final int smssdk_back_arrow2=0x7f020008;
-        public static final int smssdk_btn_disenable=0x7f020009;
-        public static final int smssdk_btn_enable=0x7f02000a;
-        public static final int smssdk_cl_divider=0x7f02000b;
-        public static final int smssdk_clear_search=0x7f02000c;
-        public static final int smssdk_corners_bg=0x7f02000d;
-        public static final int smssdk_corners_bg_nor=0x7f02000e;
-        public static final int smssdk_corners_bg_pre=0x7f02000f;
-        public static final int smssdk_country_bg_selector=0x7f020010;
-        public static final int smssdk_country_group_scroll_down=0x7f020011;
-        public static final int smssdk_country_group_scroll_up=0x7f020012;
-        public static final int smssdk_cp_default_avatar=0x7f020013;
-        public static final int smssdk_default_avatar=0x7f020014;
-        public static final int smssdk_dialog_back=0x7f020015;
-        public static final int smssdk_dialog_bg=0x7f020016;
-        public static final int smssdk_dialog_btn_back=0x7f020017;
-        public static final int smssdk_dialog_btn_nor=0x7f020021;
-        public static final int smssdk_dialog_btn_pre=0x7f020022;
-        public static final int smssdk_edittext_bg_selector=0x7f020018;
-        public static final int smssdk_input_bg_focus=0x7f020019;
-        public static final int smssdk_input_bg_normal=0x7f02001a;
-        public static final int smssdk_input_bg_special_focus=0x7f02001b;
-        public static final int smssdk_input_bg_special_normal=0x7f02001c;
-        public static final int smssdk_search_icon=0x7f02001d;
-        public static final int smssdk_sharesdk_icon=0x7f02001e;
-        public static final int tile=0x7f02001f;
-        public static final int wwj_748=0x7f020020;
+        public static final int application_bg_welcome=0x7f020000;
+        public static final int biz_news_local_weather_bg_big=0x7f020001;
+        public static final int biz_pc_account_line=0x7f020002;
+        public static final int card_avatar=0x7f020003;
+        public static final int common_btn_green=0x7f020004;
+        public static final int common_btn_red=0x7f020005;
+        public static final int gesture_create_grid_bg=0x7f020006;
+        public static final int gesture_create_grid_selected=0x7f020007;
+        public static final int gesture_guide_pic=0x7f020008;
+        public static final int gesture_pattern_item_bg=0x7f020009;
+        public static final int gesture_pattern_selected=0x7f02000a;
+        public static final int gesture_pattern_selected_wrong=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int ic_top_bar_category=0x7f02000d;
+        public static final int location_marker=0x7f02000e;
+        public static final int login_default_avatar=0x7f02000f;
+        public static final int luggage=0x7f020010;
+        public static final int scrollbar_handle_vertical=0x7f020011;
+        public static final int shape=0x7f020012;
+        public static final int skin_color_button=0x7f020013;
+        public static final int skin_common_btn_green_disable=0x7f020014;
+        public static final int skin_common_btn_green_normal=0x7f020015;
+        public static final int skin_common_btn_green_pressed=0x7f020016;
+        public static final int skin_common_btn_red_disabled=0x7f020017;
+        public static final int skin_common_btn_red_pressed=0x7f020018;
+        public static final int skin_common_btn_red_unpressed=0x7f020019;
+        public static final int smssdk_back_arrow=0x7f02001a;
+        public static final int smssdk_back_arrow2=0x7f02001b;
+        public static final int smssdk_btn_disenable=0x7f02001c;
+        public static final int smssdk_btn_enable=0x7f02001d;
+        public static final int smssdk_cl_divider=0x7f02001e;
+        public static final int smssdk_clear_search=0x7f02001f;
+        public static final int smssdk_corners_bg=0x7f020020;
+        public static final int smssdk_corners_bg_nor=0x7f020021;
+        public static final int smssdk_corners_bg_pre=0x7f020022;
+        public static final int smssdk_country_bg_selector=0x7f020023;
+        public static final int smssdk_country_group_scroll_down=0x7f020024;
+        public static final int smssdk_country_group_scroll_up=0x7f020025;
+        public static final int smssdk_cp_default_avatar=0x7f020026;
+        public static final int smssdk_default_avatar=0x7f020027;
+        public static final int smssdk_dialog_back=0x7f020028;
+        public static final int smssdk_dialog_bg=0x7f020029;
+        public static final int smssdk_dialog_btn_back=0x7f02002a;
+        public static final int smssdk_dialog_btn_nor=0x7f020035;
+        public static final int smssdk_dialog_btn_pre=0x7f020036;
+        public static final int smssdk_edittext_bg_selector=0x7f02002b;
+        public static final int smssdk_input_bg_focus=0x7f02002c;
+        public static final int smssdk_input_bg_normal=0x7f02002d;
+        public static final int smssdk_input_bg_special_focus=0x7f02002e;
+        public static final int smssdk_input_bg_special_normal=0x7f02002f;
+        public static final int smssdk_search_icon=0x7f020030;
+        public static final int smssdk_sharesdk_icon=0x7f020031;
+        public static final int tile=0x7f020032;
+        public static final int trans=0x7f020037;
+        public static final int welcome_bg=0x7f020033;
+        public static final int wwj_748=0x7f020034;
     }
     public static final class id {
-        public static final int action_settings=0x7f090038;
-        public static final int animal=0x7f090029;
-        public static final int battery=0x7f09001f;
-        public static final int ble_unlock=0x7f09001c;
-        public static final int btn_confirm=0x7f090015;
-        public static final int btn_login=0x7f09000e;
-        public static final int btn_register=0x7f09000f;
-        public static final int btn_verify=0x7f090016;
-        public static final int cn_word=0x7f09002a;
-        public static final int connection_state=0x7f090006;
-        public static final int content_frame=0x7f090011;
-        public static final int data_value=0x7f090007;
-        public static final int delete_finger=0x7f090022;
-        public static final int device_address=0x7f090005;
-        public static final int device_name=0x7f090025;
-        public static final int distance=0x7f09001e;
-        public static final int en_word=0x7f09002b;
-        public static final int et_mima=0x7f09000d;
-        public static final int et_phone=0x7f090012;
-        public static final int et_verify=0x7f090014;
-        public static final int et_zh=0x7f09000b;
-        public static final int footMapView=0x7f090019;
-        public static final int fullscreen=0x7f090003;
-        public static final int gatt_services_list=0x7f090008;
-        public static final int left=0x7f090001;
-        public static final int linearLayout1=0x7f09001a;
-        public static final int locate=0x7f09001b;
-        public static final int logOut=0x7f090024;
-        public static final int mapView=0x7f090009;
-        public static final int margin=0x7f090004;
-        public static final int menu_connect=0x7f090036;
-        public static final int menu_disconnect=0x7f090037;
-        public static final int menu_frame=0x7f090028;
-        public static final int menu_refresh=0x7f090035;
-        public static final int menu_scan=0x7f090039;
-        public static final int menu_stop=0x7f09003a;
-        public static final int profile_image=0x7f09002d;
-        public static final int register_finger=0x7f090021;
-        public static final int right=0x7f090002;
-        public static final int selected_view=0x7f090000;
-        public static final int slidingmenumain=0x7f090034;
-        public static final int sms_unlock=0x7f09001d;
-        public static final int speaker=0x7f09002c;
-        public static final int start=0x7f090017;
-        public static final int test=0x7f090010;
-        public static final int textView1=0x7f090023;
-        public static final int topButton=0x7f090026;
-        public static final int topTv=0x7f090027;
-        public static final int tvBook=0x7f090031;
-        public static final int tvFoot=0x7f09002f;
-        public static final int tvHome=0x7f09002e;
-        public static final int tvMySettings=0x7f090033;
-        public static final int tvNewProduct=0x7f090030;
-        public static final int tvScanView=0x7f090032;
-        public static final int tv_mima=0x7f09000c;
-        public static final int tv_verify=0x7f090013;
-        public static final int tv_zh=0x7f09000a;
-        public static final int webview=0x7f090018;
-        public static final int weight=0x7f090020;
+        public static final int action_settings=0x7f0a0055;
+        public static final int animal=0x7f0a0046;
+        public static final int battery=0x7f0a0022;
+        public static final int ble_unlock=0x7f0a001f;
+        public static final int btn_confirm=0x7f0a0018;
+        public static final int btn_login=0x7f0a0011;
+        public static final int btn_register=0x7f0a0012;
+        public static final int btn_verify=0x7f0a0019;
+        public static final int cn_word=0x7f0a0047;
+        public static final int connection_state=0x7f0a0009;
+        public static final int content_frame=0x7f0a0014;
+        public static final int data_value=0x7f0a000a;
+        public static final int delete_finger=0x7f0a0025;
+        public static final int device_address=0x7f0a0008;
+        public static final int device_name=0x7f0a0042;
+        public static final int distance=0x7f0a0021;
+        public static final int en_word=0x7f0a0048;
+        public static final int et_mima=0x7f0a0010;
+        public static final int et_phone=0x7f0a0015;
+        public static final int et_verify=0x7f0a0017;
+        public static final int et_zh=0x7f0a000e;
+        public static final int footMapView=0x7f0a001c;
+        public static final int fullscreen=0x7f0a0003;
+        public static final int gatt_services_list=0x7f0a000b;
+        public static final int gesturepwd_creat_gap1=0x7f0a0028;
+        public static final int gesturepwd_creat_gap2=0x7f0a0033;
+        public static final int gesturepwd_creat_gap3=0x7f0a0035;
+        public static final int gesturepwd_creat_gap4=0x7f0a0037;
+        public static final int gesturepwd_create_lockview=0x7f0a0036;
+        public static final int gesturepwd_create_text=0x7f0a0034;
+        public static final int gesturepwd_guide_btn=0x7f0a003b;
+        public static final int gesturepwd_guide_text=0x7f0a003a;
+        public static final int gesturepwd_root=0x7f0a003c;
+        public static final int gesturepwd_setting_preview=0x7f0a0029;
+        public static final int gesturepwd_setting_preview_0=0x7f0a002a;
+        public static final int gesturepwd_setting_preview_1=0x7f0a002b;
+        public static final int gesturepwd_setting_preview_2=0x7f0a002c;
+        public static final int gesturepwd_setting_preview_3=0x7f0a002d;
+        public static final int gesturepwd_setting_preview_4=0x7f0a002e;
+        public static final int gesturepwd_setting_preview_5=0x7f0a002f;
+        public static final int gesturepwd_setting_preview_6=0x7f0a0030;
+        public static final int gesturepwd_setting_preview_7=0x7f0a0031;
+        public static final int gesturepwd_setting_preview_8=0x7f0a0032;
+        public static final int gesturepwd_unlock_face=0x7f0a003d;
+        public static final int gesturepwd_unlock_failtip=0x7f0a003f;
+        public static final int gesturepwd_unlock_forget=0x7f0a0041;
+        public static final int gesturepwd_unlock_lockview=0x7f0a0040;
+        public static final int gesturepwd_unlock_text=0x7f0a003e;
+        public static final int left=0x7f0a0001;
+        public static final int linearLayout1=0x7f0a001d;
+        public static final int locate=0x7f0a001e;
+        public static final int lockHeight=0x7f0a0005;
+        public static final int lockWidth=0x7f0a0006;
+        public static final int logOut=0x7f0a0027;
+        public static final int mapView=0x7f0a000c;
+        public static final int margin=0x7f0a0004;
+        public static final int menu_connect=0x7f0a0053;
+        public static final int menu_disconnect=0x7f0a0054;
+        public static final int menu_frame=0x7f0a0045;
+        public static final int menu_refresh=0x7f0a0052;
+        public static final int menu_scan=0x7f0a0056;
+        public static final int menu_stop=0x7f0a0057;
+        public static final int profile_image=0x7f0a004a;
+        public static final int register_finger=0x7f0a0024;
+        public static final int reset_btn=0x7f0a0038;
+        public static final int right=0x7f0a0002;
+        public static final int right_btn=0x7f0a0039;
+        public static final int selected_view=0x7f0a0000;
+        public static final int slidingmenumain=0x7f0a0051;
+        public static final int sms_unlock=0x7f0a0020;
+        public static final int speaker=0x7f0a0049;
+        public static final int square=0x7f0a0007;
+        public static final int start=0x7f0a001a;
+        public static final int test=0x7f0a0013;
+        public static final int textView1=0x7f0a0026;
+        public static final int topButton=0x7f0a0043;
+        public static final int topTv=0x7f0a0044;
+        public static final int tvBook=0x7f0a004e;
+        public static final int tvFoot=0x7f0a004c;
+        public static final int tvHome=0x7f0a004b;
+        public static final int tvMySettings=0x7f0a0050;
+        public static final int tvNewProduct=0x7f0a004d;
+        public static final int tvScanView=0x7f0a004f;
+        public static final int tv_mima=0x7f0a000f;
+        public static final int tv_verify=0x7f0a0016;
+        public static final int tv_zh=0x7f0a000d;
+        public static final int webview=0x7f0a001b;
+        public static final int weight=0x7f0a0023;
     }
     public static final class layout {
         public static final int activity_ble_control=0x7f030000;
@@ -752,214 +865,234 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int frag_new_product=0x7f03000a;
         public static final int frag_scan=0x7f03000b;
         public static final int frag_settings=0x7f03000c;
-        public static final int misc_ble_actionbar_indeterminate_progress=0x7f03000d;
-        public static final int misc_ble_listitem_device=0x7f03000e;
-        public static final int misc_content_frame=0x7f03000f;
-        public static final int misc_main_head=0x7f030010;
-        public static final int misc_menu_frame_left=0x7f030011;
-        public static final int self_def_list=0x7f030012;
-        public static final int slide_menu=0x7f030013;
-        public static final int slidingmenumain=0x7f030014;
+        public static final int gesturepassword_create=0x7f03000d;
+        public static final int gesturepassword_guide=0x7f03000e;
+        public static final int gesturepassword_unlock=0x7f03000f;
+        public static final int misc_ble_actionbar_indeterminate_progress=0x7f030010;
+        public static final int misc_ble_listitem_device=0x7f030011;
+        public static final int misc_content_frame=0x7f030012;
+        public static final int misc_main_head=0x7f030013;
+        public static final int misc_menu_frame_left=0x7f030014;
+        public static final int self_def_list=0x7f030015;
+        public static final int slide_menu=0x7f030016;
+        public static final int slidingmenumain=0x7f030017;
     }
     public static final class menu {
-        public static final int gatt_services=0x7f0b0000;
-        public static final int login=0x7f0b0001;
-        public static final int luggage=0x7f0b0002;
-        public static final int main=0x7f0b0003;
-        public static final int register=0x7f0b0004;
-        public static final int start_up=0x7f0b0005;
+        public static final int gatt_services=0x7f0c0000;
+        public static final int login=0x7f0c0001;
+        public static final int luggage=0x7f0c0002;
+        public static final int main=0x7f0c0003;
+        public static final int register=0x7f0c0004;
+        public static final int start_up=0x7f0c0005;
     }
     public static final class raw {
-        public static final int smssdk_pydb=0x7f040000;
+        public static final int smssdk_pydb=0x7f050000;
     }
     public static final class string {
-        public static final int action_settings=0x7f07008d;
+        public static final int action_settings=0x7f08008d;
         /**  App 
          */
-        public static final int app_name=0x7f07008c;
-        public static final int bleScan=0x7f0700ab;
-        public static final int ble_not_supported=0x7f070097;
-        public static final int book=0x7f0700aa;
-        public static final int connected=0x7f07009c;
-        public static final int disconnected=0x7f07009d;
-        public static final int error_bluetooth_not_supported=0x7f07009f;
-        public static final int foot=0x7f0700a8;
-        public static final int hello_world=0x7f0700af;
+        public static final int app_name=0x7f08008c;
+        public static final int bleScan=0x7f0800ab;
+        public static final int ble_not_supported=0x7f080097;
+        public static final int book=0x7f0800aa;
+        public static final int connected=0x7f08009c;
+        public static final int disconnected=0x7f08009d;
+        public static final int error_bluetooth_not_supported=0x7f08009f;
+        public static final int foot=0x7f0800a8;
+        public static final int gesture_password_guide_creat_btn=0x7f0800c1;
+        public static final int gesture_password_guide_text=0x7f0800c0;
+        public static final int hello_world=0x7f0800af;
         /**  Main Menu items 
          */
-        public static final int home=0x7f0700a7;
+        public static final int home=0x7f0800a7;
         /**  BLE DATA 
          */
-        public static final int intro_message=0x7f070096;
-        public static final int label_data=0x7f070098;
-        public static final int label_device_address=0x7f070099;
-        public static final int label_state=0x7f07009a;
-        public static final int logo=0x7f0700ad;
-        public static final int luggage_battery=0x7f070093;
-        public static final int luggage_ble_unlock=0x7f07008f;
-        public static final int luggage_delete_finger=0x7f070095;
-        public static final int luggage_distance=0x7f070091;
+        public static final int intro_message=0x7f080096;
+        public static final int label_data=0x7f080098;
+        public static final int label_device_address=0x7f080099;
+        public static final int label_state=0x7f08009a;
+        public static final int lockpattern_confirm_button_text=0x7f0800b7;
+        public static final int lockpattern_continue_button_text=0x7f0800b6;
+        public static final int lockpattern_need_to_confirm=0x7f0800bc;
+        public static final int lockpattern_need_to_unlock_wrong=0x7f0800bd;
+        public static final int lockpattern_pattern_confirmed_header=0x7f0800be;
+        public static final int lockpattern_pattern_entered_header=0x7f0800bb;
+        public static final int lockpattern_recording_incorrect_too_short=0x7f0800ba;
+        public static final int lockpattern_recording_inprogress=0x7f0800bf;
+        public static final int lockpattern_recording_intro_header=0x7f0800b8;
+        public static final int lockpattern_retry_button_text=0x7f0800b5;
+        public static final int lockpattern_settings_help_how_to_record=0x7f0800b9;
+        public static final int lockscreen_access_pattern_cell_added=0x7f0800b3;
+        public static final int lockscreen_access_pattern_cleared=0x7f0800b2;
+        public static final int lockscreen_access_pattern_detected=0x7f0800b4;
+        public static final int lockscreen_access_pattern_start=0x7f0800b1;
+        public static final int logo=0x7f0800ad;
+        public static final int luggage_battery=0x7f080093;
+        public static final int luggage_ble_unlock=0x7f08008f;
+        public static final int luggage_delete_finger=0x7f080095;
+        public static final int luggage_distance=0x7f080091;
         /**  Home items 
          */
-        public static final int luggage_locate=0x7f07008e;
-        public static final int luggage_register_finger=0x7f070094;
-        public static final int luggage_sms_unlock=0x7f070090;
-        public static final int luggage_weight=0x7f070092;
+        public static final int luggage_locate=0x7f08008e;
+        public static final int luggage_register_finger=0x7f080094;
+        public static final int luggage_sms_unlock=0x7f080090;
+        public static final int luggage_weight=0x7f080092;
         /**  BLE Menu items 
          */
-        public static final int menu_connect=0x7f0700a3;
-        public static final int menu_disconnect=0x7f0700a4;
-        public static final int menu_scan=0x7f0700a5;
-        public static final int menu_stop=0x7f0700a6;
-        public static final int new_product=0x7f0700a9;
-        public static final int no_data=0x7f07009b;
-        public static final int settings=0x7f0700ac;
-        public static final int smssdk_add_contact=0x7f070085;
-        public static final int smssdk_back=0x7f07005d;
-        public static final int smssdk_cancel=0x7f070063;
-        public static final int smssdk_choice_invite_phones=0x7f070081;
-        public static final int smssdk_choose_country=0x7f070071;
-        public static final int smssdk_close_identify_page_dialog=0x7f070083;
-        public static final int smssdk_contacts_detail=0x7f07007f;
-        public static final int smssdk_contacts_in_app=0x7f07007a;
-        public static final int smssdk_contacts_out_app=0x7f07007b;
-        public static final int smssdk_contacts_phones=0x7f070080;
-        public static final int smssdk_country=0x7f070060;
-        public static final int smssdk_country_not_support_currently=0x7f070073;
-        public static final int smssdk_error_desc_400=0x7f070001;
-        public static final int smssdk_error_desc_401=0x7f070002;
-        public static final int smssdk_error_desc_402=0x7f070003;
-        public static final int smssdk_error_desc_403=0x7f070004;
-        public static final int smssdk_error_desc_404=0x7f070005;
-        public static final int smssdk_error_desc_405=0x7f070006;
-        public static final int smssdk_error_desc_406=0x7f070007;
-        public static final int smssdk_error_desc_407=0x7f070008;
-        public static final int smssdk_error_desc_408=0x7f070009;
-        public static final int smssdk_error_desc_418=0x7f07000a;
-        public static final int smssdk_error_desc_419=0x7f07000b;
-        public static final int smssdk_error_desc_450=0x7f07000c;
-        public static final int smssdk_error_desc_451=0x7f07000d;
-        public static final int smssdk_error_desc_452=0x7f07000e;
-        public static final int smssdk_error_desc_453=0x7f07000f;
-        public static final int smssdk_error_desc_454=0x7f070010;
-        public static final int smssdk_error_desc_455=0x7f070011;
-        public static final int smssdk_error_desc_456=0x7f070012;
-        public static final int smssdk_error_desc_457=0x7f070013;
-        public static final int smssdk_error_desc_458=0x7f070014;
-        public static final int smssdk_error_desc_459=0x7f070015;
-        public static final int smssdk_error_desc_460=0x7f070016;
-        public static final int smssdk_error_desc_461=0x7f070017;
-        public static final int smssdk_error_desc_462=0x7f070018;
-        public static final int smssdk_error_desc_463=0x7f070019;
-        public static final int smssdk_error_desc_464=0x7f07001a;
-        public static final int smssdk_error_desc_465=0x7f07001b;
-        public static final int smssdk_error_desc_466=0x7f07001c;
-        public static final int smssdk_error_desc_467=0x7f07001d;
-        public static final int smssdk_error_desc_468=0x7f07001e;
-        public static final int smssdk_error_desc_469=0x7f07001f;
-        public static final int smssdk_error_desc_470=0x7f070020;
-        public static final int smssdk_error_desc_471=0x7f070021;
-        public static final int smssdk_error_desc_472=0x7f070022;
-        public static final int smssdk_error_desc_473=0x7f070023;
-        public static final int smssdk_error_desc_474=0x7f070024;
-        public static final int smssdk_error_desc_475=0x7f070025;
-        public static final int smssdk_error_desc_476=0x7f070026;
-        public static final int smssdk_error_desc_477=0x7f070027;
-        public static final int smssdk_error_desc_478=0x7f070028;
-        public static final int smssdk_error_desc_500=0x7f070029;
-        public static final int smssdk_error_desc_600=0x7f07002a;
-        public static final int smssdk_error_desc_601=0x7f07002b;
-        public static final int smssdk_error_desc_602=0x7f07002c;
-        public static final int smssdk_error_desc_603=0x7f07002d;
-        public static final int smssdk_error_desc_604=0x7f07002e;
-        public static final int smssdk_error_desc_server_busy=0x7f070000;
-        public static final int smssdk_error_detail_400=0x7f07002f;
-        public static final int smssdk_error_detail_401=0x7f070030;
-        public static final int smssdk_error_detail_402=0x7f070031;
-        public static final int smssdk_error_detail_403=0x7f070032;
-        public static final int smssdk_error_detail_404=0x7f070033;
-        public static final int smssdk_error_detail_405=0x7f070034;
-        public static final int smssdk_error_detail_406=0x7f070035;
-        public static final int smssdk_error_detail_407=0x7f070036;
-        public static final int smssdk_error_detail_408=0x7f070037;
-        public static final int smssdk_error_detail_418=0x7f070038;
-        public static final int smssdk_error_detail_419=0x7f070039;
-        public static final int smssdk_error_detail_450=0x7f07003a;
-        public static final int smssdk_error_detail_451=0x7f07003b;
-        public static final int smssdk_error_detail_452=0x7f07003c;
-        public static final int smssdk_error_detail_453=0x7f07003d;
-        public static final int smssdk_error_detail_454=0x7f07003e;
-        public static final int smssdk_error_detail_455=0x7f07003f;
-        public static final int smssdk_error_detail_456=0x7f070040;
-        public static final int smssdk_error_detail_457=0x7f070041;
-        public static final int smssdk_error_detail_458=0x7f070042;
-        public static final int smssdk_error_detail_459=0x7f070043;
-        public static final int smssdk_error_detail_460=0x7f070044;
-        public static final int smssdk_error_detail_461=0x7f070045;
-        public static final int smssdk_error_detail_462=0x7f070046;
-        public static final int smssdk_error_detail_463=0x7f070047;
-        public static final int smssdk_error_detail_464=0x7f070048;
-        public static final int smssdk_error_detail_465=0x7f070049;
-        public static final int smssdk_error_detail_466=0x7f07004a;
-        public static final int smssdk_error_detail_467=0x7f07004b;
-        public static final int smssdk_error_detail_468=0x7f07004c;
-        public static final int smssdk_error_detail_469=0x7f07004d;
-        public static final int smssdk_error_detail_470=0x7f07004e;
-        public static final int smssdk_error_detail_471=0x7f07004f;
-        public static final int smssdk_error_detail_472=0x7f070050;
-        public static final int smssdk_error_detail_473=0x7f070051;
-        public static final int smssdk_error_detail_474=0x7f070052;
-        public static final int smssdk_error_detail_475=0x7f070053;
-        public static final int smssdk_error_detail_476=0x7f070054;
-        public static final int smssdk_error_detail_477=0x7f070055;
-        public static final int smssdk_error_detail_478=0x7f070056;
-        public static final int smssdk_error_detail_500=0x7f070057;
-        public static final int smssdk_error_detail_600=0x7f070058;
-        public static final int smssdk_error_detail_601=0x7f070059;
-        public static final int smssdk_error_detail_602=0x7f07005a;
-        public static final int smssdk_error_detail_603=0x7f07005b;
-        public static final int smssdk_error_detail_604=0x7f07005c;
-        public static final int smssdk_get_phone_verifycode_today_frequentlly=0x7f070087;
-        public static final int smssdk_get_verifycode_frequentlly=0x7f070086;
-        public static final int smssdk_identify_code=0x7f07006e;
-        public static final int smssdk_invite=0x7f07007c;
-        public static final int smssdk_invite_content=0x7f070082;
-        public static final int smssdk_make_sure_country_mobile=0x7f07005f;
-        public static final int smssdk_make_sure_mobile_detail=0x7f070065;
-        public static final int smssdk_make_sure_mobile_num=0x7f070062;
-        public static final int smssdk_make_sure_send_sounds=0x7f070089;
-        public static final int smssdk_network_error=0x7f070072;
-        public static final int smssdk_next=0x7f070061;
-        public static final int smssdk_not_invite=0x7f07007e;
-        public static final int smssdk_ok=0x7f070064;
-        public static final int smssdk_receive_msg=0x7f07006f;
-        public static final int smssdk_regist=0x7f07005e;
-        public static final int smssdk_resend_identify_code=0x7f070070;
-        public static final int smssdk_search=0x7f070074;
-        public static final int smssdk_search_contact=0x7f070075;
-        public static final int smssdk_send_invitation=0x7f07007d;
-        public static final int smssdk_send_mobile_detail=0x7f070069;
-        public static final int smssdk_send_sounds=0x7f07008a;
-        public static final int smssdk_send_sounds_identify_code=0x7f070088;
-        public static final int smssdk_send_sounds_success=0x7f07008b;
-        public static final int smssdk_smart_verify_already=0x7f07006a;
-        public static final int smssdk_smart_verify_tips=0x7f07006b;
-        public static final int smssdk_submit=0x7f07006d;
-        public static final int smssdk_unreceive_identify_code=0x7f07006c;
-        public static final int smssdk_user_info_submited=0x7f070079;
-        public static final int smssdk_virificaition_code_sent=0x7f070076;
-        public static final int smssdk_virificaition_code_wrong=0x7f070077;
-        public static final int smssdk_wait=0x7f070084;
-        public static final int smssdk_write_identify_code=0x7f070068;
-        public static final int smssdk_write_mobile_phone=0x7f070066;
-        public static final int smssdk_write_right_mobile_phone=0x7f070067;
-        public static final int smssdk_your_ccount_is_verified=0x7f070078;
-        public static final int title_activity_login=0x7f0700ae;
-        public static final int title_activity_register=0x7f0700b0;
-        public static final int title_devices=0x7f07009e;
-        public static final int unknown_characteristic=0x7f0700a1;
-        public static final int unknown_device=0x7f0700a0;
-        public static final int unknown_service=0x7f0700a2;
+        public static final int menu_connect=0x7f0800a3;
+        public static final int menu_disconnect=0x7f0800a4;
+        public static final int menu_scan=0x7f0800a5;
+        public static final int menu_stop=0x7f0800a6;
+        public static final int new_product=0x7f0800a9;
+        public static final int no_data=0x7f08009b;
+        public static final int settings=0x7f0800ac;
+        public static final int smssdk_add_contact=0x7f080085;
+        public static final int smssdk_back=0x7f08005d;
+        public static final int smssdk_cancel=0x7f080063;
+        public static final int smssdk_choice_invite_phones=0x7f080081;
+        public static final int smssdk_choose_country=0x7f080071;
+        public static final int smssdk_close_identify_page_dialog=0x7f080083;
+        public static final int smssdk_contacts_detail=0x7f08007f;
+        public static final int smssdk_contacts_in_app=0x7f08007a;
+        public static final int smssdk_contacts_out_app=0x7f08007b;
+        public static final int smssdk_contacts_phones=0x7f080080;
+        public static final int smssdk_country=0x7f080060;
+        public static final int smssdk_country_not_support_currently=0x7f080073;
+        public static final int smssdk_error_desc_400=0x7f080001;
+        public static final int smssdk_error_desc_401=0x7f080002;
+        public static final int smssdk_error_desc_402=0x7f080003;
+        public static final int smssdk_error_desc_403=0x7f080004;
+        public static final int smssdk_error_desc_404=0x7f080005;
+        public static final int smssdk_error_desc_405=0x7f080006;
+        public static final int smssdk_error_desc_406=0x7f080007;
+        public static final int smssdk_error_desc_407=0x7f080008;
+        public static final int smssdk_error_desc_408=0x7f080009;
+        public static final int smssdk_error_desc_418=0x7f08000a;
+        public static final int smssdk_error_desc_419=0x7f08000b;
+        public static final int smssdk_error_desc_450=0x7f08000c;
+        public static final int smssdk_error_desc_451=0x7f08000d;
+        public static final int smssdk_error_desc_452=0x7f08000e;
+        public static final int smssdk_error_desc_453=0x7f08000f;
+        public static final int smssdk_error_desc_454=0x7f080010;
+        public static final int smssdk_error_desc_455=0x7f080011;
+        public static final int smssdk_error_desc_456=0x7f080012;
+        public static final int smssdk_error_desc_457=0x7f080013;
+        public static final int smssdk_error_desc_458=0x7f080014;
+        public static final int smssdk_error_desc_459=0x7f080015;
+        public static final int smssdk_error_desc_460=0x7f080016;
+        public static final int smssdk_error_desc_461=0x7f080017;
+        public static final int smssdk_error_desc_462=0x7f080018;
+        public static final int smssdk_error_desc_463=0x7f080019;
+        public static final int smssdk_error_desc_464=0x7f08001a;
+        public static final int smssdk_error_desc_465=0x7f08001b;
+        public static final int smssdk_error_desc_466=0x7f08001c;
+        public static final int smssdk_error_desc_467=0x7f08001d;
+        public static final int smssdk_error_desc_468=0x7f08001e;
+        public static final int smssdk_error_desc_469=0x7f08001f;
+        public static final int smssdk_error_desc_470=0x7f080020;
+        public static final int smssdk_error_desc_471=0x7f080021;
+        public static final int smssdk_error_desc_472=0x7f080022;
+        public static final int smssdk_error_desc_473=0x7f080023;
+        public static final int smssdk_error_desc_474=0x7f080024;
+        public static final int smssdk_error_desc_475=0x7f080025;
+        public static final int smssdk_error_desc_476=0x7f080026;
+        public static final int smssdk_error_desc_477=0x7f080027;
+        public static final int smssdk_error_desc_478=0x7f080028;
+        public static final int smssdk_error_desc_500=0x7f080029;
+        public static final int smssdk_error_desc_600=0x7f08002a;
+        public static final int smssdk_error_desc_601=0x7f08002b;
+        public static final int smssdk_error_desc_602=0x7f08002c;
+        public static final int smssdk_error_desc_603=0x7f08002d;
+        public static final int smssdk_error_desc_604=0x7f08002e;
+        public static final int smssdk_error_desc_server_busy=0x7f080000;
+        public static final int smssdk_error_detail_400=0x7f08002f;
+        public static final int smssdk_error_detail_401=0x7f080030;
+        public static final int smssdk_error_detail_402=0x7f080031;
+        public static final int smssdk_error_detail_403=0x7f080032;
+        public static final int smssdk_error_detail_404=0x7f080033;
+        public static final int smssdk_error_detail_405=0x7f080034;
+        public static final int smssdk_error_detail_406=0x7f080035;
+        public static final int smssdk_error_detail_407=0x7f080036;
+        public static final int smssdk_error_detail_408=0x7f080037;
+        public static final int smssdk_error_detail_418=0x7f080038;
+        public static final int smssdk_error_detail_419=0x7f080039;
+        public static final int smssdk_error_detail_450=0x7f08003a;
+        public static final int smssdk_error_detail_451=0x7f08003b;
+        public static final int smssdk_error_detail_452=0x7f08003c;
+        public static final int smssdk_error_detail_453=0x7f08003d;
+        public static final int smssdk_error_detail_454=0x7f08003e;
+        public static final int smssdk_error_detail_455=0x7f08003f;
+        public static final int smssdk_error_detail_456=0x7f080040;
+        public static final int smssdk_error_detail_457=0x7f080041;
+        public static final int smssdk_error_detail_458=0x7f080042;
+        public static final int smssdk_error_detail_459=0x7f080043;
+        public static final int smssdk_error_detail_460=0x7f080044;
+        public static final int smssdk_error_detail_461=0x7f080045;
+        public static final int smssdk_error_detail_462=0x7f080046;
+        public static final int smssdk_error_detail_463=0x7f080047;
+        public static final int smssdk_error_detail_464=0x7f080048;
+        public static final int smssdk_error_detail_465=0x7f080049;
+        public static final int smssdk_error_detail_466=0x7f08004a;
+        public static final int smssdk_error_detail_467=0x7f08004b;
+        public static final int smssdk_error_detail_468=0x7f08004c;
+        public static final int smssdk_error_detail_469=0x7f08004d;
+        public static final int smssdk_error_detail_470=0x7f08004e;
+        public static final int smssdk_error_detail_471=0x7f08004f;
+        public static final int smssdk_error_detail_472=0x7f080050;
+        public static final int smssdk_error_detail_473=0x7f080051;
+        public static final int smssdk_error_detail_474=0x7f080052;
+        public static final int smssdk_error_detail_475=0x7f080053;
+        public static final int smssdk_error_detail_476=0x7f080054;
+        public static final int smssdk_error_detail_477=0x7f080055;
+        public static final int smssdk_error_detail_478=0x7f080056;
+        public static final int smssdk_error_detail_500=0x7f080057;
+        public static final int smssdk_error_detail_600=0x7f080058;
+        public static final int smssdk_error_detail_601=0x7f080059;
+        public static final int smssdk_error_detail_602=0x7f08005a;
+        public static final int smssdk_error_detail_603=0x7f08005b;
+        public static final int smssdk_error_detail_604=0x7f08005c;
+        public static final int smssdk_get_phone_verifycode_today_frequentlly=0x7f080087;
+        public static final int smssdk_get_verifycode_frequentlly=0x7f080086;
+        public static final int smssdk_identify_code=0x7f08006e;
+        public static final int smssdk_invite=0x7f08007c;
+        public static final int smssdk_invite_content=0x7f080082;
+        public static final int smssdk_make_sure_country_mobile=0x7f08005f;
+        public static final int smssdk_make_sure_mobile_detail=0x7f080065;
+        public static final int smssdk_make_sure_mobile_num=0x7f080062;
+        public static final int smssdk_make_sure_send_sounds=0x7f080089;
+        public static final int smssdk_network_error=0x7f080072;
+        public static final int smssdk_next=0x7f080061;
+        public static final int smssdk_not_invite=0x7f08007e;
+        public static final int smssdk_ok=0x7f080064;
+        public static final int smssdk_receive_msg=0x7f08006f;
+        public static final int smssdk_regist=0x7f08005e;
+        public static final int smssdk_resend_identify_code=0x7f080070;
+        public static final int smssdk_search=0x7f080074;
+        public static final int smssdk_search_contact=0x7f080075;
+        public static final int smssdk_send_invitation=0x7f08007d;
+        public static final int smssdk_send_mobile_detail=0x7f080069;
+        public static final int smssdk_send_sounds=0x7f08008a;
+        public static final int smssdk_send_sounds_identify_code=0x7f080088;
+        public static final int smssdk_send_sounds_success=0x7f08008b;
+        public static final int smssdk_smart_verify_already=0x7f08006a;
+        public static final int smssdk_smart_verify_tips=0x7f08006b;
+        public static final int smssdk_submit=0x7f08006d;
+        public static final int smssdk_unreceive_identify_code=0x7f08006c;
+        public static final int smssdk_user_info_submited=0x7f080079;
+        public static final int smssdk_virificaition_code_sent=0x7f080076;
+        public static final int smssdk_virificaition_code_wrong=0x7f080077;
+        public static final int smssdk_wait=0x7f080084;
+        public static final int smssdk_write_identify_code=0x7f080068;
+        public static final int smssdk_write_mobile_phone=0x7f080066;
+        public static final int smssdk_write_right_mobile_phone=0x7f080067;
+        public static final int smssdk_your_ccount_is_verified=0x7f080078;
+        public static final int title_activity_login=0x7f0800ae;
+        public static final int title_activity_register=0x7f0800b0;
+        public static final int title_devices=0x7f08009e;
+        public static final int unknown_characteristic=0x7f0800a1;
+        public static final int unknown_device=0x7f0800a0;
+        public static final int unknown_service=0x7f0800a2;
     }
     public static final class style {
         /** 
@@ -983,23 +1116,25 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080002;
+        public static final int AppBaseTheme=0x7f090002;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080000;
+        public static final int AppTheme=0x7f090000;
+        public static final int ButtonGreen=0x7f090003;
+        public static final int ButtonRed=0x7f090004;
         /**  dialog 
          */
-        public static final int CommonDialog=0x7f080001;
+        public static final int CommonDialog=0x7f090001;
         /**  Activity themes 
          */
-        public static final int Theme_Base=0x7f080003;
-        public static final int Theme_Sample=0x7f080004;
+        public static final int Theme_Base=0x7f090005;
+        public static final int Theme_Sample=0x7f090006;
         /**  Widget styling 
          */
-        public static final int Widget=0x7f080005;
-        public static final int Widget_SampleMessage=0x7f080006;
-        public static final int Widget_SampleMessageTile=0x7f080007;
+        public static final int Widget=0x7f090007;
+        public static final int Widget_SampleMessage=0x7f090008;
+        public static final int Widget_SampleMessageTile=0x7f090009;
     }
     public static final class styleable {
         /** Attributes that can be used with a CircleImageView.
@@ -1048,6 +1183,146 @@ containing a value of this type.
           @attr name com.zzy.luggage:border_width
         */
         public static final int CircleImageView_border_width = 0;
+        /**  LockPatternView class attributes 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LockPatternView_arrowGreenUp com.zzy.luggage:arrowGreenUp}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_arrowRedUp com.zzy.luggage:arrowRedUp}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_aspect com.zzy.luggage:aspect}</code></td><td>
+             Aspect to use when drawing LockPatternView.</td></tr>
+           <tr><td><code>{@link #LockPatternView_btnNormal com.zzy.luggage:btnNormal}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_btnTouched com.zzy.luggage:btnTouched}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_circleGreen com.zzy.luggage:circleGreen}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_circleNormal com.zzy.luggage:circleNormal}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_circleRed com.zzy.luggage:circleRed}</code></td><td></td></tr>
+           <tr><td><code>{@link #LockPatternView_line com.zzy.luggage:line}</code></td><td></td></tr>
+           </table>
+           @see #LockPatternView_arrowGreenUp
+           @see #LockPatternView_arrowRedUp
+           @see #LockPatternView_aspect
+           @see #LockPatternView_btnNormal
+           @see #LockPatternView_btnTouched
+           @see #LockPatternView_circleGreen
+           @see #LockPatternView_circleNormal
+           @see #LockPatternView_circleRed
+           @see #LockPatternView_line
+         */
+        public static final int[] LockPatternView = {
+            0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013,
+            0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017,
+            0x7f010018
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#arrowGreenUp}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:arrowGreenUp
+        */
+        public static final int LockPatternView_arrowGreenUp = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#arrowRedUp}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:arrowRedUp
+        */
+        public static final int LockPatternView_arrowRedUp = 8;
+        /**
+          <p>
+          @attr description
+          
+             Aspect to use when drawing LockPatternView. Choices are "square"(default), "lock_width"
+             or "lock_height"
+        
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>square</code></td><td>0</td><td></td></tr>
+<tr><td><code>lockWidth</code></td><td>1</td><td></td></tr>
+<tr><td><code>lockHeight</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.zzy.luggage:aspect
+        */
+        public static final int LockPatternView_aspect = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#btnNormal}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:btnNormal
+        */
+        public static final int LockPatternView_btnNormal = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#btnTouched}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:btnTouched
+        */
+        public static final int LockPatternView_btnTouched = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#circleGreen}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:circleGreen
+        */
+        public static final int LockPatternView_circleGreen = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#circleNormal}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:circleNormal
+        */
+        public static final int LockPatternView_circleNormal = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#circleRed}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.zzy.luggage:circleRed
+        */
+        public static final int LockPatternView_circleRed = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.zzy.luggage.R.attr#line}
+          attribute's value can be found in the {@link #LockPatternView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.zzy.luggage:line
+        */
+        public static final int LockPatternView_line = 1;
         /** Attributes that can be used with a SlidingMenu.
            <p>Includes the following attributes:</p>
            <table>

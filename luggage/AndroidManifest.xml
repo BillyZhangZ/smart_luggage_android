@@ -37,6 +37,7 @@
         android:value="82291e4754ed2f155b915f0cf37a5b5f" />
 
     <application
+        android:name="com.zzy.pattern.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -84,6 +85,20 @@
             android:configChanges="keyboardHidden|orientation|screenSize|locale|layoutDirection"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+         <activity
+            android:name="com.zzy.pattern.UnlockGesturePasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zzy.pattern.CreateGesturePasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zzy.pattern.GuideGesturePasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
