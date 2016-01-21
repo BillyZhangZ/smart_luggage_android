@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/biz_news_local_weather_bg_big"
+    android:background="@drawable/slide_menu_bg_big"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -17,7 +17,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/wwj_748"
+            android:src="@drawable/slide_menu_avatar"
             app:border_color="#FFffffff"
             app:border_width="1dp" />
 
@@ -50,7 +50,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
 
     <TextView
          android:id="@+id/tvFoot"
@@ -68,7 +68,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
 
     <TextView
          android:id="@+id/tvNewProduct"
@@ -86,7 +86,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
     <TextView
          android:id="@+id/tvBook"
         android:layout_width="match_parent"
@@ -103,7 +103,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
     <TextView
         android:id="@+id/tvScanView"
         android:layout_width="match_parent"
@@ -120,7 +120,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
     <TextView
          android:id="@+id/tvMySettings"
         android:layout_width="match_parent"
@@ -137,6 +137,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2.0dip"
-        android:background="@drawable/biz_pc_account_line" />
+        android:background="@drawable/slide_menu_separate_line" />
 	
 </LinearLayout>

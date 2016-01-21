@@ -1,5 +1,6 @@
 package com.zzy.pattern;
 
+import com.zzy.luggage.LuggageActivity;
 import com.zzy.luggage.R;
 import com.zzy.pattern.view.LockPatternUtils;
 import com.zzy.pattern.view.LockPatternView;
@@ -43,7 +44,7 @@ public class UnlockGesturePasswordActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gesturepassword_unlock);
+		setContentView(R.layout.activity_unlock_gesture_password);
 
 		mLockPatternView = (LockPatternView) this
 				.findViewById(R.id.gesturepwd_unlock_lockview);
@@ -58,7 +59,8 @@ public class UnlockGesturePasswordActivity extends Activity {
 		super.onResume();
 
 		if (!App.getInstance().getLockPatternUtils().savedPatternExists()) {
-			startActivity(new Intent(this, GuideGesturePasswordActivity.class));
+			//startActivity(new Intent(this, GuideGesturePasswordActivity.class));
+			startActivity(new Intent(this, LuggageActivity.class));
 			finish();
 		}
 	}
@@ -93,10 +95,10 @@ public class UnlockGesturePasswordActivity extends Activity {
 				mLockPatternView
 						.setDisplayMode(LockPatternView.DisplayMode.Correct);
 				Intent intent = new Intent(UnlockGesturePasswordActivity.this,
-						GuideGesturePasswordActivity.class);
-				// 鎵撳紑鏂扮殑Activity
+						LuggageActivity.class);
+
 				startActivity(intent);
-				showToast("瑙ｉ攣鎴愬姛");
+				showToast("解锁成功");
 				finish();
 			} else {
 				mLockPatternView
@@ -107,14 +109,14 @@ public class UnlockGesturePasswordActivity extends Activity {
 							- mFailedPatternAttemptsSinceLastTimeout;
 					if (retry >= 0) {
 						if (retry == 0)
-							showToast("鎮ㄥ�?5娆¤緭閿欏瘑鐮侊紝璇�30绉掑悗鍐嶈瘯");
-						mHeadTextView.setText("瀵嗙爜閿欒锛岃繕鍙互鍐嶈緭鍏�?" + retry + "娆�");
+							showToast("您已5次输错密码，请30秒后再试");
+						mHeadTextView.setText("密码错误，还可以再输入" + retry + "濞嗭拷");
 						mHeadTextView.setTextColor(Color.RED);
 						mHeadTextView.startAnimation(mShakeAnim);
 					}
 
 				}else{
-					showToast("杈撳叆闀垮害涓嶅锛岃閲嶈�?");
+					showToast("输入长度不够，请重试");
 				}
 
 				if (mFailedPatternAttemptsSinceLastTimeout >= LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT) {
@@ -145,9 +147,9 @@ public class UnlockGesturePasswordActivity extends Activity {
 				public void onTick(long millisUntilFinished) {
 					int secondsRemaining = (int) (millisUntilFinished / 1000) - 1;
 					if (secondsRemaining > 0) {
-						mHeadTextView.setText(secondsRemaining + " 绉掑悗閲嶈瘯");
+						mHeadTextView.setText(secondsRemaining + " 秒后重试");
 					} else {
-						mHeadTextView.setText("璇风粯鍒舵墜鍔垮瘑鐮�?");
+						mHeadTextView.setText("请绘制手势密码");
 						mHeadTextView.setTextColor(Color.WHITE);
 					}
 

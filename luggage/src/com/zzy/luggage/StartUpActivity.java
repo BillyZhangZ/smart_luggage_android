@@ -54,21 +54,16 @@ public class StartUpActivity extends Activity implements Callback{
 		setContentView(R.layout.activity_start_up);
 		((LauncherTextView)findViewById(R.id.start)).setStart(true);
 		
-		/**
-		 * test
-		 */
-		Intent intent = new Intent(this, GuideGesturePasswordActivity.class);
-		startActivity(intent);
-		
-		/*
 		mLogin = isLogin();
 		new Handler().postDelayed(new Runnable() {    
 	        public void run() {   
 	            final Intent intent = new Intent();
 	            if(mLogin == true)
 	            {
-		            intent.setClass(StartUpActivity.this, LuggageActivity.class);
-		            startActivity(intent);
+		            intent.setClass(StartUpActivity.this, GuideGesturePasswordActivity.class);
+	        		startActivity(intent);
+		            //intent.setClass(StartUpActivity.this, LuggageActivity.class);
+		            //startActivity(intent);
 		            finish();
 	            }
 	            else 
@@ -79,7 +74,7 @@ public class StartUpActivity extends Activity implements Callback{
 					handler.sendMessage(msg);
 	            }
 	        }    
-	    }, 3000);  */
+	    }, 3000);  
 	}
 	private void initSDK() {
 		SMSSDK.initSDK(this, APPKEY, APPSECRET, true);
@@ -104,33 +99,15 @@ public class StartUpActivity extends Activity implements Callback{
 		}
 		super.onDestroy();
 	}
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.start_up, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 	
 	public boolean isLogin()
 	{
-		//ÊµÀı»¯SharedPreferences¶ÔÏó£¨µÚÒ»²½£© 
+		//å®é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·SharedPreferencesé”Ÿæ–¤æ‹·é”Ÿè¥Ÿï¼ˆç¢‰æ‹·ä¸€é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· 
 		SharedPreferences mySharedPreferences= getSharedPreferences("account", 
 		MODE_PRIVATE); 
 				
 		String phoneNumber =mySharedPreferences.getString("phoneNumber", ""); 
-		//Toast.makeText(this , "ÕË»§£º"+"\n"+"phoneNumber£º" + phoneNumber + "\n", 
+		//Toast.makeText(this , "é”Ÿå‰¿ä¼™æ‹·é”Ÿæ–¤æ‹·"+"\n"+"phoneNumberé”Ÿæ–¤æ‹·" + phoneNumber + "\n", 
 		//Toast.LENGTH_LONG).show(); 
 		
 		if(phoneNumber != "")
@@ -140,14 +117,14 @@ public class StartUpActivity extends Activity implements Callback{
 	
 	public boolean Login(String number)
 	{
-		//ÊµÀı»¯SharedPreferences¶ÔÏó£¨µÚÒ»²½£© 
+		//å®é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·SharedPreferencesé”Ÿæ–¤æ‹·é”Ÿè¥Ÿï¼ˆç¢‰æ‹·ä¸€é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· 
 		SharedPreferences mySharedPreferences= getSharedPreferences("account", 
 		MODE_PRIVATE); 
-		//ÊµÀı»¯SharedPreferences.Editor¶ÔÏó£¨µÚ¶ş²½£© 
+		//å®é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·SharedPreferences.Editoré”Ÿæ–¤æ‹·é”Ÿè¥Ÿï¼ˆç¬¬è®¹æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· 
 		SharedPreferences.Editor editor = mySharedPreferences.edit(); 
-		//ÓÃputStringµÄ·½·¨±£´æÊı¾İ 
+		//é”Ÿæ–¤æ‹·putStringé”Ÿä¾¥å‡¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· 
 		editor.putString("phoneNumber", number); 
-		//Ìá½»µ±Ç°Êı¾İ 
+		//é”Ÿç»“äº¤é”Ÿæ–¤æ‹·å‰é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· 
 		editor.commit(); 		
 		
 		return true;
@@ -192,18 +169,18 @@ public class StartUpActivity extends Activity implements Callback{
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-		if(keyCode == KeyEvent.KEYCODE_BACK) { //¼à¿Ø/À¹½Ø/ÆÁ±Î·µ»Ø¼ü
+		if(keyCode == KeyEvent.KEYCODE_BACK) { //é”Ÿæ–¤æ‹·é”Ÿï¿½/é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·/é”Ÿæ–¤æ‹·é”Ÿè½¿å‡¤æ‹·é”Ÿæˆªç¡·æ‹·
 			 if ((System.currentTimeMillis() - mExitTime) > 2000) {
                 // Object mHelperUtils;
-                 Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³ö³ÌĞò", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, "é”ŸåŠ«å¸®æ‹·ä¸€é”Ÿæ–¤æ‹·é”Ÿå‰¿ç­¹æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·", Toast.LENGTH_SHORT).show();
                  mExitTime = System.currentTimeMillis();
 
 	         } else {
 	                 finish();
 	         }
 	         return true;
-         } else if(keyCode == KeyEvent.KEYCODE_MENU) {//MENU¼ü
-	        //¼à¿Ø/À¹½Ø²Ëµ¥¼ü
+         } else if(keyCode == KeyEvent.KEYCODE_MENU) {//MENUé”Ÿæ–¤æ‹·
+	        //é”Ÿæ–¤æ‹·é”Ÿï¿½/é”Ÿæ–¤æ‹·é”Ÿæˆªèœç¢‰æ‹·é”Ÿæ–¤æ‹·
 	         return true;
 	    }     
 	    return super.onKeyDown(keyCode, event);

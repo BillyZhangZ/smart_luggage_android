@@ -1,2 +1,41 @@
 1453301108449	Rename package 'com.way.pattern'
 1453301132206	Rename package 'com.way.view'
+1453384159812	Rename resource 'gesturepassword_create.xml'
+1453384303606	Rename resource 'activity_create_lock_pattern.xml'
+1453384494062	Rename resource 'gesturepassword_guide.xml'
+1453384517813	Rename resource 'gesturepassword_unlock.xml'
+1453387891373	Delete element
+1453387900245	Delete element
+1453387943578	Delete element
+1453387950461	Delete element
+1453389275497	Delete element
+1453389815826	Delete element
+1453390013730	Delete element
+1453390265441	Rename resource 'application_bg_welcome.png'
+1453390311568	Rename resource 'welcome_bg.xml'
+1453390390653	Rename resource 'biz_news_local_weather_bg_big.jpg'
+1453390470594	Rename resource 'biz_pc_account_line.png'
+1453390712121	Rename resource 'card_avatar.9.png'
+1453390737336	Rename resource 'login_default_avatar.png'
+1453390818227	Rename resource 'ic_top_bar_category.png'
+1453391455287	Rename resource 'common_btn_green.xml'
+1453391468922	Rename resource 'common_btn_red.xml'
+1453391695875	Rename resource 'location_marker.png'
+1453391709206	Rename resource 'luggage.png'
+1453391801751	Delete element
+1453391997039	Rename resource 'scrollbar_handle_vertical.9.png'
+1453392142388	Rename resource 'shape.xml'
+1453392169577	Rename resource 'round_rectangle_shape.xml'
+1453392265854	Rename resource 'wwj_748.jpg'
+1453392294582	Rename resource 'skin_color_button.xml'
+1453392305258	Rename resource 'skin_common_btn_green_disable.9.png'
+1453392317691	Rename resource 'skin_common_btn_green_normal.9.png'
+1453392327639	Rename resource 'skin_common_btn_green_pressed.9.png'
+1453392339100	Rename resource 'skin_common_btn_red_disabled.9.png'
+1453392350512	Rename resource 'skin_common_btn_red_pressed.9.png'
+1453392363374	Rename resource 'skin_common_btn_red_unpressed.9.png'
+1453392498320	Rename resource 'anim'
+1453392825140	Rename resource 'gesture_animation_param'
+1453392850039	Rename resource 'gesture-animation-param'
+1453393190392	Delete element
+1453393351374	Delete element

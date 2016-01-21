@@ -156,8 +156,8 @@ public class CreateGesturePasswordActivity extends Activity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gesturepassword_create);
-		// 鍒濆鍖栨紨�?哄姩鐢�
+		setContentView(R.layout.activity_create_gesture_password);
+		// 初始化演示动画
 		mAnimatePattern.add(LockPatternView.Cell.of(0, 0));
 		mAnimatePattern.add(LockPatternView.Cell.of(0, 1));
 		mAnimatePattern.add(LockPatternView.Cell.of(1, 1));
@@ -411,7 +411,7 @@ public class CreateGesturePasswordActivity extends Activity implements
 
 	private void saveChosenPatternAndFinish() {
 		App.getInstance().getLockPatternUtils().saveLockPattern(mChosenPattern);
-		showToast("瀵嗙爜璁剧疆鎴愬�?");
+		showToast("密码设置成功");
 		startActivity(new Intent(this,UnlockGesturePasswordActivity.class));
 		finish();
 	}

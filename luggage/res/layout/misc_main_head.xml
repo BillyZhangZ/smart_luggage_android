@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="4dp"
-        android:src="@drawable/ic_top_bar_category" />
+        android:src="@drawable/misc_main_head_top_bar_category" />
 
     <TextView
         android:id="@+id/topTv"

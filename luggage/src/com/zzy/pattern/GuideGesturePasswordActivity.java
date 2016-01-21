@@ -12,7 +12,7 @@ public class GuideGesturePasswordActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gesturepassword_guide);
+		setContentView(R.layout.activity_guide_gesture_password);
 		findViewById(R.id.gesturepwd_guide_btn).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

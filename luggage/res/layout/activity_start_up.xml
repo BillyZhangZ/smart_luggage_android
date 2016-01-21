@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.zzy.luggage.StartUpActivity" 
-    android:background="@drawable/luggage">
+    android:background="@drawable/luggage_bg">
 	<com.zzy.luggage.LauncherTextView 
 	    android:id="@+id/start" 
 	    android:layout_width="wrap_content"  
